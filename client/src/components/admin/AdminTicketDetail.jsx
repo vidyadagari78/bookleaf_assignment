@@ -15,7 +15,10 @@ import {
   FileText,
   Clock,
   ArrowRight,
-  Edit3
+  Edit3,
+  Flame,
+  Zap,
+  Cpu
 } from 'lucide-react';
 import { api } from '../../services/api';
 
@@ -141,16 +144,16 @@ export function AdminTicketDetail({ ticketId, onTicketUpdated }) {
 
   if (loading) {
     return (
-      <div className="glass-panel" style={{ padding: '3rem', textAlign: 'center' }}>
-        <RefreshCw size={24} className="animate-spin" style={{ color: 'var(--primary)', margin: '0 auto 1rem' }} />
-        <p style={{ color: 'var(--text-muted)' }}>Loading ticket details & operations context...</p>
+      <div className="glass-panel" style={{ padding: '3.5rem', textAlign: 'center' }}>
+        <RefreshCw size={26} className="animate-spin" style={{ color: 'var(--primary)', margin: '0 auto 1.25rem' }} />
+        <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Loading ticket details & operations context...</p>
       </div>
     );
   }
 
   if (!ticket) {
     return (
-      <div className="glass-panel" style={{ padding: '3rem', textAlign: 'center' }}>
+      <div className="glass-panel" style={{ padding: '3.5rem', textAlign: 'center' }}>
         <p style={{ color: 'var(--text-muted)' }}>Select a ticket from the queue to inspect and draft responses.</p>
       </div>
     );
@@ -166,13 +169,13 @@ export function AdminTicketDetail({ ticketId, onTicketUpdated }) {
       {/* ======================================================== */}
       {/* LEFT COLUMN: Thread, Author Profile & Internal Notes     */}
       {/* ======================================================== */}
-      <div className="glass-panel" style={{ padding: '1.5rem' }}>
+      <div className="glass-panel" style={{ padding: '1.75rem' }}>
         {/* Ticket Header */}
-        <div style={{ paddingBottom: '1rem', borderBottom: '1px solid var(--border-subtle)', marginBottom: '1.25rem' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '0.5rem' }}>
+        <div style={{ paddingBottom: '1.25rem', borderBottom: '1px solid var(--border-glass)', marginBottom: '1.5rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '0.65rem' }}>
             <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', marginBottom: '0.35rem' }}>
-                <span style={{ fontSize: '0.78rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)', fontWeight: 600 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.45rem' }}>
+                <span style={{ fontSize: '0.78rem', fontFamily: 'var(--font-code)', color: 'var(--text-dim)', fontWeight: 700 }}>
                   #{ticket.id}
                 </span>
                 <span className={`badge badge-status-${ticket.status.toLowerCase().replace(' ', '')}`}>
@@ -182,7 +185,7 @@ export function AdminTicketDetail({ ticketId, onTicketUpdated }) {
                   {effectivePriority}
                 </span>
               </div>
-              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.35rem', fontWeight: 700, color: '#ffffff' }}>
+              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.45rem', fontWeight: 800, color: '#ffffff', lineHeight: '1.3' }}>
                 {ticket.subject}
               </h2>
             </div>
@@ -190,7 +193,7 @@ export function AdminTicketDetail({ ticketId, onTicketUpdated }) {
             <div style={{ fontSize: '0.75rem', color: 'var(--text-dim)', textAlign: 'right' }}>
               <div>Raised {new Date(ticket.created_at).toLocaleString()}</div>
               {ticket.assigned_to_name && (
-                <div style={{ color: '#818cf8', marginTop: '0.2rem' }}>
+                <div style={{ color: '#818cf8', marginTop: '0.25rem', fontWeight: 600 }}>
                   Assigned: {ticket.assigned_to_name}
                 </div>
               )}
@@ -199,7 +202,7 @@ export function AdminTicketDetail({ ticketId, onTicketUpdated }) {
         </div>
 
         {/* Navigation Tabs for Left Column */}
-        <div style={{ display: 'flex', gap: '0.4rem', marginBottom: '1.25rem', borderBottom: '1px solid var(--border-subtle)', paddingBottom: '0.5rem' }}>
+        <div style={{ display: 'flex', gap: '0.45rem', marginBottom: '1.5rem', borderBottom: '1px solid var(--border-glass)', paddingBottom: '0.65rem' }}>
           <button 
             className={`btn btn-sm ${activeTab === 'conversation' ? 'btn-primary' : 'btn-secondary'}`}
             onClick={() => setActiveTab('conversation')}
@@ -224,30 +227,30 @@ export function AdminTicketDetail({ ticketId, onTicketUpdated }) {
 
         {/* Tab 1: Conversation Thread */}
         {activeTab === 'conversation' && (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', maxHeight: '520px', overflowY: 'auto', paddingRight: '0.3rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.35rem', maxHeight: '540px', overflowY: 'auto', paddingRight: '0.35rem' }}>
             {ticket.messages?.map((msg) => {
               const isAdmin = msg.sender_role === 'admin';
               return (
                 <div 
                   key={msg.id}
                   style={{
-                    background: isAdmin ? 'var(--bg-surface-elevated)' : 'rgba(16, 185, 129, 0.12)',
-                    border: isAdmin ? '1px solid var(--border-subtle)' : '1px solid rgba(16, 185, 129, 0.3)',
+                    background: isAdmin ? 'linear-gradient(135deg, rgba(22, 34, 60, 0.9), rgba(15, 23, 42, 0.9))' : 'linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(5, 150, 105, 0.1))',
+                    border: isAdmin ? '1px solid var(--border-glass)' : '1px solid rgba(16, 185, 129, 0.35)',
                     borderRadius: 'var(--radius-md)',
-                    padding: '1.1rem',
+                    padding: '1.25rem',
                     position: 'relative'
                   }}
                 >
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem', fontSize: '0.76rem' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.55rem', fontSize: '0.76rem' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
                       {isAdmin ? (
                         <>
-                          <ShieldCheck size={14} style={{ color: 'var(--primary)' }} />
+                          <ShieldCheck size={15} style={{ color: 'var(--primary)' }} />
                           <strong style={{ color: '#a7f3d0' }}>{msg.sender_name} (BookLeaf Operations)</strong>
                         </>
                       ) : (
                         <>
-                          <User size={14} style={{ color: 'var(--text-muted)' }} />
+                          <User size={15} style={{ color: 'var(--text-muted)' }} />
                           <strong style={{ color: '#ffffff' }}>{msg.sender_name} (Author)</strong>
                         </>
                       )}
@@ -257,7 +260,7 @@ export function AdminTicketDetail({ ticketId, onTicketUpdated }) {
                     </span>
                   </div>
 
-                  <div style={{ fontSize: '0.88rem', color: '#f8fafc', lineHeight: '1.6', whiteSpace: 'pre-wrap' }}>
+                  <div style={{ fontSize: '0.88rem', color: '#f8fafc', lineHeight: '1.65', whiteSpace: 'pre-wrap' }}>
                     {msg.message}
                   </div>
                 </div>
@@ -270,35 +273,35 @@ export function AdminTicketDetail({ ticketId, onTicketUpdated }) {
         {activeTab === 'notes' && (
           <div>
             <div style={{
-              background: 'rgba(99, 102, 241, 0.1)',
-              border: '1px solid rgba(99, 102, 241, 0.25)',
+              background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(15, 23, 42, 0.8))',
+              border: '1px solid rgba(99, 102, 241, 0.3)',
               borderRadius: 'var(--radius-md)',
-              padding: '0.75rem 1rem',
-              marginBottom: '1rem',
-              fontSize: '0.8rem',
+              padding: '0.85rem 1.15rem',
+              marginBottom: '1.25rem',
+              fontSize: '0.82rem',
               color: '#c7d2fe',
               display: 'flex',
               alignItems: 'center',
-              gap: '0.5rem'
+              gap: '0.65rem'
             }}>
-              <Lock size={16} />
-              <span>Internal notes are <strong>strictly private</strong> and never visible to authors in their portal or API responses.</span>
+              <Lock size={18} style={{ color: '#818cf8', flexShrink: 0 }} />
+              <span>Internal notes are <strong>strictly confidential</strong> and never sent to authors or exposed in public API routes.</span>
             </div>
 
             {/* Existing Notes Stream */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '1.25rem', maxHeight: '340px', overflowY: 'auto' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', marginBottom: '1.35rem', maxHeight: '360px', overflowY: 'auto' }}>
               {ticket.internal_notes?.length === 0 ? (
-                <div style={{ textAlign: 'center', padding: '1.5rem', color: 'var(--text-dim)', fontSize: '0.85rem' }}>
+                <div style={{ textAlign: 'center', padding: '2rem', color: 'var(--text-dim)', fontSize: '0.86rem' }}>
                   No internal notes recorded yet.
                 </div>
               ) : (
                 ticket.internal_notes.map((n) => (
-                  <div key={n.id} style={{ background: 'var(--bg-surface-elevated)', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-md)', padding: '0.85rem' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.74rem', marginBottom: '0.35rem' }}>
+                  <div key={n.id} style={{ background: 'rgba(22, 34, 60, 0.75)', border: '1px solid var(--border-glass)', borderRadius: 'var(--radius-sm)', padding: '1rem' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.76rem', marginBottom: '0.4rem' }}>
                       <strong style={{ color: '#818cf8' }}>{n.admin_name}</strong>
                       <span style={{ color: 'var(--text-dim)' }}>{new Date(n.created_at).toLocaleString()}</span>
                     </div>
-                    <p style={{ fontSize: '0.85rem', color: '#cbd5e1', lineHeight: '1.5' }}>{n.note}</p>
+                    <p style={{ fontSize: '0.86rem', color: '#cbd5e1', lineHeight: '1.55' }}>{n.note}</p>
                   </div>
                 ))
               )}
@@ -309,11 +312,11 @@ export function AdminTicketDetail({ ticketId, onTicketUpdated }) {
               <textarea 
                 className="form-textarea"
                 rows={3}
-                placeholder="Write internal note (e.g. Verified Repro India print batch logs #4190, approving reprint)..."
+                placeholder="Record private operational notes (e.g. Verified Repro India print batch logs, approving reprint)..."
                 value={newNoteText}
                 onChange={(e) => setNewNoteText(e.target.value)}
               />
-              <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '0.65rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '0.75rem' }}>
                 <button type="submit" className="btn btn-secondary btn-sm" disabled={isAddingNote || !newNoteText.trim()}>
                   <Lock size={12} />
                   <span>{isAddingNote ? 'Saving...' : 'Add Private Note'}</span>
@@ -325,21 +328,21 @@ export function AdminTicketDetail({ ticketId, onTicketUpdated }) {
 
         {/* Tab 3: Author & Catalog Profile Context */}
         {activeTab === 'author_context' && (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
             {/* Author Profile */}
-            <div style={{ background: 'var(--bg-surface-elevated)', borderRadius: 'var(--radius-md)', padding: '1rem', border: '1px solid var(--border-subtle)' }}>
-              <h4 style={{ fontSize: '0.88rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.5rem' }}>
+            <div style={{ background: 'rgba(22, 34, 60, 0.75)', borderRadius: 'var(--radius-md)', padding: '1.25rem', border: '1px solid var(--border-glass)' }}>
+              <h4 style={{ fontSize: '0.92rem', fontWeight: 800, color: 'var(--primary)', marginBottom: '0.65rem' }}>
                 Author Profile: {ticket.author_name}
               </h4>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem', fontSize: '0.8rem', color: '#cbd5e1' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.65rem', fontSize: '0.82rem', color: '#cbd5e1' }}>
                 <div>Email: <strong style={{ color: '#ffffff' }}>{ticket.author_email}</strong></div>
                 <div>Country: <strong>{ticket.author_country}</strong> ({ticket.author_city || 'N/A'})</div>
                 <div>Package: <strong style={{ color: '#fbbf24' }}>{ticket.author_package}</strong></div>
                 <div>
                   Bank Verified: {ticket.author_bank_details?.is_verified ? (
-                    <span style={{ color: '#34d399', fontWeight: 600 }}>✓ Yes ({ticket.author_bank_details.bank_name})</span>
+                    <span style={{ color: '#34d399', fontWeight: 700 }}>✓ Yes ({ticket.author_bank_details.bank_name})</span>
                   ) : (
-                    <span style={{ color: '#ef4444', fontWeight: 600 }}>⚠ Not Verified / Pending</span>
+                    <span style={{ color: '#ef4444', fontWeight: 700 }}>⚠ Not Verified / Pending</span>
                   )}
                 </div>
               </div>
@@ -347,11 +350,11 @@ export function AdminTicketDetail({ ticketId, onTicketUpdated }) {
 
             {/* Linked Book */}
             {ticket.book_title ? (
-              <div style={{ background: 'var(--bg-surface-elevated)', borderRadius: 'var(--radius-md)', padding: '1rem', border: '1px solid var(--border-subtle)' }}>
-                <h4 style={{ fontSize: '0.88rem', fontWeight: 700, color: '#38bdf8', marginBottom: '0.5rem' }}>
+              <div style={{ background: 'rgba(22, 34, 60, 0.75)', borderRadius: 'var(--radius-md)', padding: '1.25rem', border: '1px solid var(--border-glass)' }}>
+                <h4 style={{ fontSize: '0.92rem', fontWeight: 800, color: '#38bdf8', marginBottom: '0.65rem' }}>
                   Linked Book: {ticket.book_title}
                 </h4>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.5rem', fontSize: '0.8rem', color: '#cbd5e1' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.65rem', fontSize: '0.82rem', color: '#cbd5e1' }}>
                   <div>ISBN: <strong>{ticket.book_isbn || 'Pending'}</strong></div>
                   <div>Status: <strong>{ticket.book_status}</strong></div>
                   <div>Stage: <strong>{ticket.book_production_stage}</strong></div>
@@ -361,7 +364,7 @@ export function AdminTicketDetail({ ticketId, onTicketUpdated }) {
                 </div>
               </div>
             ) : (
-              <div style={{ background: 'var(--bg-surface-elevated)', padding: '1rem', borderRadius: 'var(--radius-md)', color: 'var(--text-dim)', fontSize: '0.8rem' }}>
+              <div style={{ background: 'rgba(22, 34, 60, 0.75)', padding: '1.25rem', borderRadius: 'var(--radius-md)', color: 'var(--text-dim)', fontSize: '0.82rem', border: '1px solid var(--border-glass)' }}>
                 This is an account-level or general query not tied to a specific book.
               </div>
             )}
@@ -372,29 +375,31 @@ export function AdminTicketDetail({ ticketId, onTicketUpdated }) {
       {/* ======================================================== */}
       {/* RIGHT COLUMN: AI Operations Studio & Admin Overrides     */}
       {/* ======================================================== */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
         {/* 1. AI Auto-Classification & Priority Box */}
-        <div className="glass-panel" style={{ padding: '1.25rem', borderColor: 'rgba(99, 102, 241, 0.3)' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.85rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
-              <Sparkles size={18} style={{ color: '#818cf8' }} />
-              <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#ffffff' }}>
-                AI Auto-Classification & Priority
+        <div className="glass-panel" style={{ padding: '1.5rem', borderColor: 'rgba(99, 102, 241, 0.35)', boxShadow: '0 0 25px rgba(99, 102, 241, 0.08)' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.1rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.55rem' }}>
+              <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: 'var(--accent-indigo-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#818cf8' }}>
+                <Cpu size={16} />
+              </div>
+              <h3 style={{ fontSize: '1.05rem', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.02em' }}>
+                AI Auto-Classification & Triage
               </h3>
             </div>
-            <span style={{ fontSize: '0.72rem', color: 'var(--text-dim)' }}>
-              Confidence Score: {ticket.ai_priority_score}/100
+            <span style={{ fontSize: '0.74rem', color: '#a5b4fc', fontWeight: 700, background: 'rgba(99, 102, 241, 0.15)', padding: '0.2rem 0.55rem', borderRadius: '4px' }}>
+              Score: {ticket.ai_priority_score}/100
             </span>
           </div>
 
           {/* AI Category & Override */}
-          <div style={{ marginBottom: '1rem' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.35rem' }}>
-              <label style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Category</label>
+          <div style={{ marginBottom: '1.15rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.4rem' }}>
+              <label style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 700 }}>Domain Category</label>
               {isOverriddenCategory ? (
-                <span style={{ fontSize: '0.7rem', color: '#fbbf24', fontWeight: 600 }}>• Admin Overridden</span>
+                <span style={{ fontSize: '0.72rem', color: '#fbbf24', fontWeight: 700 }}>• Admin Overridden</span>
               ) : (
-                <span style={{ fontSize: '0.7rem', color: 'var(--primary)', fontWeight: 600 }}>• AI Detected</span>
+                <span style={{ fontSize: '0.72rem', color: 'var(--primary)', fontWeight: 700 }}>• AI Detected</span>
               )}
             </div>
             <select 
@@ -411,13 +416,13 @@ export function AdminTicketDetail({ ticketId, onTicketUpdated }) {
           </div>
 
           {/* AI Priority & Override */}
-          <div style={{ marginBottom: '1rem' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.35rem' }}>
-              <label style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Priority Level</label>
+          <div style={{ marginBottom: '1.15rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.4rem' }}>
+              <label style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 700 }}>Urgency Priority</label>
               {isOverriddenPriority ? (
-                <span style={{ fontSize: '0.7rem', color: '#fbbf24', fontWeight: 600 }}>• Admin Overridden</span>
+                <span style={{ fontSize: '0.72rem', color: '#fbbf24', fontWeight: 700 }}>• Admin Overridden</span>
               ) : (
-                <span style={{ fontSize: '0.7rem', color: 'var(--primary)', fontWeight: 600 }}>• AI Scored ({ticket.ai_priority_score})</span>
+                <span style={{ fontSize: '0.72rem', color: 'var(--primary)', fontWeight: 700 }}>• AI Scored ({ticket.ai_priority_score})</span>
               )}
             </div>
             <select 
@@ -434,9 +439,9 @@ export function AdminTicketDetail({ ticketId, onTicketUpdated }) {
           </div>
 
           {/* Status selector */}
-          <div style={{ marginBottom: '1rem' }}>
-            <label style={{ fontSize: '0.78rem', color: 'var(--text-muted)', display: 'block', marginBottom: '0.35rem' }}>
-              Ticket Status
+          <div style={{ marginBottom: '1.15rem' }}>
+            <label style={{ fontSize: '0.8rem', color: 'var(--text-muted)', display: 'block', marginBottom: '0.4rem', fontWeight: 700 }}>
+              Ticket Status Lifecycle
             </label>
             <select 
               className="form-select"
@@ -448,14 +453,14 @@ export function AdminTicketDetail({ ticketId, onTicketUpdated }) {
           </div>
 
           {/* Rationale explanation */}
-          <div style={{ background: 'var(--bg-surface-elevated)', borderRadius: 'var(--radius-md)', padding: '0.75rem', fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '1rem' }}>
-            <strong>AI Rationale:</strong> {ticket.ai_rationale}
+          <div style={{ background: 'rgba(22, 34, 60, 0.75)', borderRadius: 'var(--radius-sm)', padding: '0.85rem', fontSize: '0.76rem', color: 'var(--text-muted)', marginBottom: '1.25rem', border: '1px solid var(--border-glass)', lineHeight: '1.5' }}>
+            <strong style={{ color: '#ffffff' }}>AI Triage Rationale:</strong> {ticket.ai_rationale}
           </div>
 
           {/* Save overrides button */}
           <button 
             className="btn btn-secondary btn-sm"
-            style={{ width: '100%' }}
+            style={{ width: '100%', padding: '0.65rem' }}
             onClick={handleApplyOverrides}
             disabled={isUpdatingMeta}
           >
@@ -464,41 +469,79 @@ export function AdminTicketDetail({ ticketId, onTicketUpdated }) {
           </button>
         </div>
 
-        {/* 2. AI-Drafted Response Studio */}
-        <div className="glass-panel" style={{ padding: '1.25rem', borderColor: 'rgba(16, 185, 129, 0.3)' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.85rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
-              <Edit3 size={18} style={{ color: 'var(--primary)' }} />
-              <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#ffffff' }}>
-                AI-Drafted Response Studio
-              </h3>
+        {/* 2. AI-Drafted Response Studio (Athena Engine) */}
+        <div className="glass-panel" style={{ padding: '1.6rem', borderColor: 'rgba(16, 185, 129, 0.45)', boxShadow: '0 0 35px rgba(16, 185, 129, 0.12)' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.9rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+              <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: 'var(--primary-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#34d399', boxShadow: '0 0 12px rgba(16, 185, 129, 0.4)' }}>
+                <Sparkles size={17} />
+              </div>
+              <div>
+                <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.02em' }}>
+                  Athena Neural Drafting Studio
+                </h3>
+                <span style={{ fontSize: '0.72rem', color: 'var(--text-dim)' }}>Policy-Grounded Editorial AI</span>
+              </div>
             </div>
-            <span style={{ fontSize: '0.72rem', color: 'var(--primary)', fontWeight: 600 }}>
-              BookLeaf Knowledge Grounded
-            </span>
+            <div className="waveform-bars" title="Neural synthesis engine active">
+              <span className="waveform-bar" />
+              <span className="waveform-bar" />
+              <span className="waveform-bar" />
+              <span className="waveform-bar" />
+              <span className="waveform-bar" />
+            </div>
           </div>
 
-          <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '0.85rem' }}>
-            Synthesizes responses using BookLeaf's 80/20 royalty formula, 45-day cycle, printing SLAs, and tone guidelines.
+          <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '0.85rem', lineHeight: '1.5' }}>
+            Synthesizes responses using BookLeaf's 80/20 royalty formula, 45-day window, printing SLAs, and empathetic tone guidelines.
           </p>
 
+          {/* Active Policy Citations */}
+          <div style={{ marginBottom: '1rem' }}>
+            <div style={{ fontSize: '0.7rem', color: 'var(--text-dim)', textTransform: 'uppercase', fontWeight: 700, marginBottom: '0.4rem' }}>
+              Grounded Policy Clauses
+            </div>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
+              <span className="policy-citation-tag" title="80% net author profit share">
+                §4.1 Royalty Split (80/20)
+              </span>
+              <span className="policy-citation-tag" title="₹1,000 threshold with automatic quarterly rollover">
+                §5.2 ₹1,000 Rollover Rule
+              </span>
+              <span className="policy-citation-tag" title="Quarterly distribution within 45 days">
+                §6.0 45-Day Payout SLA
+              </span>
+              {ticket.ai_category === 'ISBN & Metadata Issues' && (
+                <span className="policy-citation-tag" style={{ borderColor: 'rgba(239, 68, 68, 0.4)', color: '#fca5a5' }} title="Raja Rammohun Roy National Agency escalation">
+                  §2.3 Critical ISBN Priority
+                </span>
+              )}
+              {ticket.ai_category === 'Printing & Quality' && (
+                <span className="policy-citation-tag" style={{ borderColor: 'rgba(245, 158, 11, 0.4)', color: '#fde68a' }} title="100% free replacement on verified printing flaws">
+                  §3.2 Free Reprint Warranty
+                </span>
+              )}
+            </div>
+          </div>
+
           {/* Tone Selector & Generator Button */}
-          <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.85rem' }}>
+          <div style={{ display: 'flex', gap: '0.6rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
             <select 
               className="form-select"
-              style={{ fontSize: '0.78rem', flex: 1 }}
+              style={{ fontSize: '0.82rem', flex: 1, minWidth: '180px' }}
               value={toneStyle}
               onChange={(e) => setToneStyle(e.target.value)}
             >
-              <option value="Empathetic & Professional">Tone: Empathetic & Professional</option>
-              <option value="Direct & Expedited">Tone: Direct & Expedited Action</option>
-              <option value="Detailed Breakdown">Tone: Detailed Mathematical Breakdown</option>
+              <option value="Empathetic & Professional">🌿 Tone: Empathetic & Professional</option>
+              <option value="Direct & Expedited">⚡ Tone: Direct & Expedited Action</option>
+              <option value="Detailed Breakdown">📐 Tone: Detailed Ledger Breakdown</option>
             </select>
 
             <button 
               className="btn btn-primary btn-sm"
               onClick={handleGenerateAiDraft}
               disabled={isGeneratingDraft}
+              style={{ padding: '0.65rem 1.1rem' }}
             >
               <Sparkles size={14} />
               <span>{isGeneratingDraft ? 'Synthesizing...' : 'Generate Draft'}</span>
@@ -508,43 +551,43 @@ export function AdminTicketDetail({ ticketId, onTicketUpdated }) {
           {/* Metadata banner if generated */}
           {aiMeta && (
             <div style={{
-              background: 'rgba(16, 185, 129, 0.08)',
-              border: '1px solid rgba(16, 185, 129, 0.25)',
-              borderRadius: 'var(--radius-md)',
-              padding: '0.6rem 0.85rem',
-              fontSize: '0.74rem',
+              background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(15, 23, 42, 0.8))',
+              border: '1px solid rgba(16, 185, 129, 0.35)',
+              borderRadius: 'var(--radius-sm)',
+              padding: '0.65rem 0.95rem',
+              fontSize: '0.75rem',
               color: '#a7f3d0',
-              marginBottom: '0.75rem',
+              marginBottom: '1rem',
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center'
             }}>
-              <span><strong>Engine:</strong> {aiMeta.provider}</span>
+              <span><strong>Model:</strong> {aiMeta.provider}</span>
               <span><strong>Tokens:</strong> ~{aiMeta.tokens_used} ({aiMeta.cost_savings})</span>
             </div>
           )}
 
           {/* Editable Draft Textarea */}
-          <div style={{ marginBottom: '0.85rem' }}>
+          <div style={{ marginBottom: '1rem' }}>
             <textarea 
               className="form-textarea"
               rows={8}
               placeholder="Click 'Generate Draft' above to synthesize a response grounded in BookLeaf policies, or draft manually..."
               value={aiDraft}
               onChange={(e) => setAiDraft(e.target.value)}
-              style={{ fontSize: '0.84rem', lineHeight: '1.5' }}
+              style={{ fontSize: '0.86rem', lineHeight: '1.6' }}
             />
           </div>
 
           {/* Action Buttons */}
-          <div style={{ display: 'flex', gap: '0.5rem' }}>
+          <div style={{ display: 'flex', gap: '0.65rem' }}>
             <button 
               className="btn btn-primary"
               style={{ flex: 1 }}
               onClick={() => handleSendResponse('In Progress')}
               disabled={isSendingResponse || !aiDraft.trim()}
             >
-              <Send size={14} />
+              <Send size={15} />
               <span>{isSendingResponse ? 'Sending...' : 'Send to Author'}</span>
             </button>
 
@@ -554,7 +597,7 @@ export function AdminTicketDetail({ ticketId, onTicketUpdated }) {
               onClick={() => handleSendResponse('Resolved')}
               disabled={isSendingResponse || !aiDraft.trim()}
             >
-              <CheckCircle2 size={14} />
+              <CheckCircle2 size={15} />
               <span>Resolve</span>
             </button>
           </div>

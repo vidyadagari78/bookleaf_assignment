@@ -46,25 +46,29 @@ export function LoginPage() {
         {/* Brand Icon & Heading */}
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
           <div style={{
-            width: '54px',
-            height: '54px',
-            background: 'linear-gradient(135deg, #10b981 0%, #047857 100%)',
-            borderRadius: '16px',
+            width: '60px',
+            height: '60px',
+            background: 'linear-gradient(135deg, #10b981 0%, #047857 70%, #064e3b 100%)',
+            borderRadius: '18px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            margin: '0 auto 1rem',
-            boxShadow: 'var(--shadow-glow)',
-            color: '#ffffff'
+            margin: '0 auto 1.15rem',
+            boxShadow: '0 0 30px rgba(16, 185, 129, 0.45)',
+            color: '#ffffff',
+            border: '1px solid rgba(255, 255, 255, 0.25)'
           }}>
-            <BookOpen size={28} />
+            <BookOpen size={30} />
           </div>
-          <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.75rem', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.02em' }}>
-            BookLeaf Publishing
+          <h1 style={{ fontFamily: 'var(--font-royal)', fontSize: '1.9rem', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.01em' }}>
+            BookLeaf <span className="text-foil-gold">Publishing</span>
           </h1>
-          <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', marginTop: '0.25rem' }}>
-            Author Support & Operations Portal
+          <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginTop: '0.35rem' }}>
+            Author Support & Operations Neural Portal
           </p>
+          <div style={{ fontSize: '0.74rem', color: 'var(--text-dim)', marginTop: '0.45rem', fontStyle: 'italic' }}>
+            Processing 1,200+ monthly titles across 22,000+ authors
+          </div>
         </div>
 
         {error && (
