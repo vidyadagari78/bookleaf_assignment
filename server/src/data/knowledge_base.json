@@ -1,0 +1,92 @@
+{
+  "company_overview": {
+    "name": "BookLeaf Publishing",
+    "regions": ["India", "United States"],
+    "monthly_volume": "1,200+ books processed monthly",
+    "catalog_size": "22,000+ titles",
+    "publishing_packages": {
+      "standard_free": {
+        "name": "Standard Free",
+        "upfront_cost": 0,
+        "features": ["Standard formatting", "BookLeaf imprint ISBN", "Basic distribution", "Online author dashboard"]
+      },
+      "bestseller_breakthrough": {
+        "name": "Bestseller Breakthrough",
+        "upfront_cost": "Premium paid package",
+        "features": ["Priority editing", "Custom cover design", "Dedicated author manager", "Expanded marketing & international distribution"]
+      }
+    },
+    "facilities": {
+      "in_house_printing": "In-house printing facility and warehouse located in Delhi.",
+      "print_partners": ["Repro India", "Epitome Books"]
+    },
+    "services_handled": ["Cover design", "Typesetting", "ISBN assignment", "Printing", "Distribution", "Royalty management"]
+  },
+  "royalty_policy": {
+    "split_percentage": "80/20 royalty split (80% net profit to Author, 20% to BookLeaf)",
+    "net_profit_formula": "Net Profit = MRP - (Printing Cost + Platform Commission [Amazon/Flipkart] + Shipping Charges)",
+    "payout_frequency": "Calculated quarterly and paid within 45 days of the quarter ending.",
+    "quarterly_cycles": [
+      { "quarter": "Q1 (Jan - Mar)", "payout_deadline": "May 15" },
+      { "quarter": "Q2 (Apr - Jun)", "payout_deadline": "August 15" },
+      { "quarter": "Q3 (Jul - Sep)", "payout_deadline": "November 15" },
+      { "quarter": "Q4 (Oct - Dec)", "payout_deadline": "February 15 of next year" }
+    ],
+    "minimum_payout_threshold": 1000,
+    "currency": "INR",
+    "threshold_rule": "If accumulated royalties are below ₹1,000, they automatically roll over to the next quarter.",
+    "payment_method": "Direct bank transfer (NEFT/RTGS/IMPS for India, ACH/Wire for US) to the bank account linked and verified in the author's dashboard.",
+    "transparency": "Authors can view a line-by-line sales and royalty breakdown in their dashboard showing platform-wise performance."
+  },
+  "isbn_policy": {
+    "assignment": "Every book published through BookLeaf receives a unique ISBN assigned by BookLeaf under the BookLeaf publisher imprint.",
+    "custom_imprint": "If an author wants an ISBN under their own imprint, they need to procure and provide it independently through the national agency (e.g. Raja Rammohun Roy National Agency in India or Bowker in US).",
+    "isbn_errors": "If an author reports an ISBN error (duplicate ISBN, wrong title linked on retail portals, metadata mismatch), it is treated as a Critical / High-Priority issue and immediately escalated to the production and cataloging team for resolution within 48 hours."
+  },
+  "printing_and_quality": {
+    "production_capacity": "In-house Delhi facility handles standard book runs; overflow and special format bindings are routed to Repro India or Epitome Books.",
+    "standard_turnaround": "5–7 business days from order confirmation for author and retail copies.",
+    "quality_guarantee": "If an author reports any quality defects (misprints, ink smudges, binding faults, cover color inconsistency, trimming issues), BookLeaf provides a 100% free reprint after photo verification.",
+    "verification_process": "Author must share clear photos of the defective copies showing the defect and the copyright/imprint page."
+  },
+  "distribution_and_availability": {
+    "retail_channels": ["Amazon India", "Flipkart", "Amazon US", "Amazon UK", "BookLeaf Store"],
+    "go_live_turnaround": "New listings typically go live within 7–10 business days after publication is completed and ISBN assigned.",
+    "stock_sync_issues": "If an active book shows as 'Currently Unavailable' or 'Out of Stock' on Amazon or Flipkart, it is almost always an automated stock catalog sync desynchronization. BookLeaf's distribution operations desk can trigger an expedited API re-sync within 24–48 hours."
+  },
+  "production_stages": [
+    { "order": 1, "key": "manuscript_received", "name": "Manuscript Received", "description": "Raw manuscript submitted and registered in editorial queue." },
+    { "order": 2, "key": "editing", "name": "Editing", "description": "Copyediting, grammar check, and developmental feedback (if opted)." },
+    { "order": 3, "key": "cover_design", "name": "Cover Design", "description": "Drafting front, spine, and back cover layouts. Typical delay bottleneck: awaiting author approval." },
+    { "order": 4, "key": "typesetting", "name": "Typesetting", "description": "Interior layout formatting, fonts, margins, headers/footers, and chapter headings." },
+    { "order": 5, "key": "proofreading", "name": "Proofreading", "description": "Final galley proof review. Author reviews digital PDF proofs for revision requests." },
+    { "order": 6, "key": "isbn_assignment", "name": "ISBN Assignment", "description": "Unique ISBN registration with national bibliographic database and barcode generation." },
+    { "order": 7, "key": "printing", "name": "Printing", "description": "Proof printing and first physical print run at Delhi or Repro India facility." },
+    { "order": 8, "key": "distribution_setup", "name": "Distribution Setup", "description": "Catalog ingestion on Amazon, Flipkart, and BookLeaf store." },
+    { "order": 9, "key": "published_and_live", "name": "Published & Live", "description": "Book is fully published, live, and accepting orders worldwide." }
+  ],
+  "communication_tone_guidelines": {
+    "core_principles": [
+      "Always empathetic and professional: Authors are our creative partners, not customers to be managed.",
+      "Acknowledge the author's concern upfront before jumping to solutions.",
+      "Be specific: Include actual numbers, dates, amounts, and statuses wherever possible rather than vague reassurances.",
+      "Direct accountability: If something is BookLeaf's fault (delayed royalties, print defect, ISBN error), own it directly without corporate deflection.",
+      "Clear timelines: Give explicit timeframes (e.g. 'Our team will look into this and resolve within 48 hours') rather than open-ended promises.",
+      "Clear next steps: Always conclude with a precise next step for the author and/or the BookLeaf operations team."
+    ]
+  },
+  "categories": [
+    "Royalty & Payments",
+    "ISBN & Metadata Issues",
+    "Printing & Quality",
+    "Distribution & Availability",
+    "Book Status & Production Updates",
+    "General Inquiry"
+  ],
+  "priority_levels": [
+    { "level": "Critical", "description": "Blockers affecting sales, commercial ISBN data corruption, duplicate listings, or severely delayed payments (>90 days)." },
+    { "level": "High", "description": "Defective author copies, print flaws, book showing unavailable on retail platforms, overdue royalty inquiries." },
+    { "level": "Medium", "description": "Royalty breakdown questions, production stage timeline updates, general distribution inquiries." },
+    { "level": "Low", "description": "Routine bio/description updates, general questions about publishing packages, cover tweaks for future editions." }
+  ]
+}

@@ -1,0 +1,933 @@
+{
+  "authors": [
+    {
+      "id": "auth-001",
+      "name": "Aarav Sharma",
+      "email": "aarav.sharma@example.com",
+      "password": "password123",
+      "phone": "+91 98201 44512",
+      "country": "India",
+      "city": "Mumbai",
+      "bank_details": {
+        "account_holder": "Aarav Sharma",
+        "account_number": "XXXXXX4821",
+        "ifsc_code": "HDFC0001234",
+        "bank_name": "HDFC Bank",
+        "is_verified": true
+      },
+      "package": "Bestseller Breakthrough",
+      "created_at": "2024-11-10T10:00:00Z"
+    },
+    {
+      "id": "auth-002",
+      "name": "Priya Sen",
+      "email": "priya.sen@example.com",
+      "password": "password123",
+      "phone": "+91 98310 99234",
+      "country": "India",
+      "city": "Kolkata",
+      "bank_details": {
+        "account_holder": "Priya Sen",
+        "account_number": "XXXXXX7190",
+        "ifsc_code": "ICIC0000456",
+        "bank_name": "ICICI Bank",
+        "is_verified": true
+      },
+      "package": "Standard Free",
+      "created_at": "2025-01-14T09:30:00Z"
+    },
+    {
+      "id": "auth-003",
+      "name": "Rajesh Kothari",
+      "email": "rajesh.kothari@example.com",
+      "password": "password123",
+      "phone": "+91 98190 23411",
+      "country": "India",
+      "city": "Ahmedabad",
+      "bank_details": {
+        "account_holder": "Rajesh Kothari",
+        "account_number": "XXXXXX3312",
+        "ifsc_code": "SBIN0001122",
+        "bank_name": "State Bank of India",
+        "is_verified": true
+      },
+      "package": "Bestseller Breakthrough",
+      "created_at": "2024-09-05T14:15:00Z"
+    },
+    {
+      "id": "auth-004",
+      "name": "Sunita Patel",
+      "email": "sunita.patel@example.com",
+      "password": "password123",
+      "phone": "+91 97230 67123",
+      "country": "India",
+      "city": "Vadodara",
+      "bank_details": {
+        "account_holder": "Sunita Patel",
+        "account_number": "XXXXXX8841",
+        "ifsc_code": "BARB0VADODO",
+        "bank_name": "Bank of Baroda",
+        "is_verified": true
+      },
+      "package": "Standard Free",
+      "created_at": "2025-02-18T11:00:00Z"
+    },
+    {
+      "id": "auth-005",
+      "name": "Vikram Desai",
+      "email": "vikram.desai@example.com",
+      "password": "password123",
+      "phone": "+91 99001 55678",
+      "country": "India",
+      "city": "Bengaluru",
+      "bank_details": {
+        "account_holder": "Vikram Desai",
+        "account_number": "XXXXXX9012",
+        "ifsc_code": "KKBK0008899",
+        "bank_name": "Kotak Mahindra Bank",
+        "is_verified": true
+      },
+      "package": "Standard Free",
+      "created_at": "2025-03-01T15:45:00Z"
+    },
+    {
+      "id": "auth-006",
+      "name": "Maya Iyer",
+      "email": "maya.iyer@example.com",
+      "password": "password123",
+      "phone": "+1 408 555 0192",
+      "country": "US",
+      "city": "San Jose, CA",
+      "bank_details": {
+        "account_holder": "Maya Iyer",
+        "account_number": "XXXXXX5521",
+        "routing_number": "121000358",
+        "bank_name": "Chase Bank NA",
+        "is_verified": true
+      },
+      "package": "Bestseller Breakthrough",
+      "created_at": "2024-12-10T16:20:00Z"
+    },
+    {
+      "id": "auth-007",
+      "name": "Rohan Gupta",
+      "email": "rohan.gupta@example.com",
+      "password": "password123",
+      "phone": "+91 98111 88293",
+      "country": "India",
+      "city": "New Delhi",
+      "bank_details": {
+        "account_holder": "Rohan Gupta",
+        "account_number": "XXXXXX1198",
+        "ifsc_code": "PUNB0123400",
+        "bank_name": "Punjab National Bank",
+        "is_verified": true
+      },
+      "package": "Bestseller Breakthrough",
+      "created_at": "2024-10-22T08:15:00Z"
+    },
+    {
+      "id": "auth-008",
+      "name": "Ananya Roy",
+      "email": "ananya.roy@example.com",
+      "password": "password123",
+      "phone": "+91 98302 77411",
+      "country": "India",
+      "city": "Kolkata",
+      "bank_details": {
+        "account_holder": "Ananya Roy",
+        "account_number": "XXXXXX6643",
+        "ifsc_code": "AXIS0000789",
+        "bank_name": "Axis Bank",
+        "is_verified": true
+      },
+      "package": "Standard Free",
+      "created_at": "2025-01-05T12:00:00Z"
+    },
+    {
+      "id": "auth-009",
+      "name": "David Miller",
+      "email": "david.miller@example.com",
+      "password": "password123",
+      "phone": "+1 617 555 0147",
+      "country": "US",
+      "city": "Boston, MA",
+      "bank_details": {
+        "account_holder": "David Miller",
+        "account_number": "XXXXXX3489",
+        "routing_number": "011000138",
+        "bank_name": "Bank of America",
+        "is_verified": true
+      },
+      "package": "Bestseller Breakthrough",
+      "created_at": "2024-08-19T17:30:00Z"
+    },
+    {
+      "id": "auth-010",
+      "name": "Sarah Jenkins",
+      "email": "sarah.jenkins@example.com",
+      "password": "password123",
+      "phone": "+1 206 555 0188",
+      "country": "US",
+      "city": "Seattle, WA",
+      "bank_details": {
+        "account_holder": "Sarah Jenkins",
+        "account_number": "XXXXXX9201",
+        "routing_number": "125000024",
+        "bank_name": "Wells Fargo",
+        "is_verified": false
+      },
+      "package": "Standard Free",
+      "created_at": "2025-08-10T19:00:00Z"
+    }
+  ],
+  "admins": [
+    {
+      "id": "admin-001",
+      "name": "Priya Sharma",
+      "email": "admin@bookleafpublishing.com",
+      "password": "adminpassword123",
+      "role": "admin",
+      "title": "Head of Author Operations",
+      "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150"
+    },
+    {
+      "id": "admin-002",
+      "name": "Kabir Verma",
+      "email": "support@bookleafpublishing.com",
+      "password": "adminpassword123",
+      "role": "admin",
+      "title": "Senior Author Success Specialist",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150"
+    }
+  ],
+  "books": [
+    {
+      "id": "book-001",
+      "author_id": "auth-001",
+      "title": "The Whispering Embers",
+      "isbn": "978-93-91234-01-2",
+      "genre": "Literary Fiction",
+      "publication_date": "2025-04-15",
+      "status": "Published",
+      "production_stage": "Published & Live",
+      "mrp": 499,
+      "currency": "INR",
+      "page_count": 284,
+      "printing_partner": "In-House Delhi",
+      "package": "Bestseller Breakthrough",
+      "total_copies_sold": 1420,
+      "total_royalty_earned": 35500,
+      "royalty_paid": 30000,
+      "royalty_pending": 5500,
+      "distribution_platforms": ["Amazon India", "Flipkart", "BookLeaf Store", "Amazon US"],
+      "stock_status": "In Stock",
+      "sales_breakdown": {
+        "Amazon India": 850,
+        "Flipkart": 410,
+        "BookLeaf Store": 110,
+        "Amazon US": 50
+      }
+    },
+    {
+      "id": "book-002",
+      "author_id": "auth-001",
+      "title": "Shadows in the Mist",
+      "isbn": "978-93-91234-02-9",
+      "genre": "Mystery & Thriller",
+      "publication_date": "2025-10-10",
+      "status": "Published",
+      "production_stage": "Published & Live",
+      "mrp": 399,
+      "currency": "INR",
+      "page_count": 220,
+      "printing_partner": "In-House Delhi",
+      "package": "Standard Free",
+      "total_copies_sold": 180,
+      "total_royalty_earned": 3600,
+      "royalty_paid": 3600,
+      "royalty_pending": 0,
+      "distribution_platforms": ["Amazon India", "Flipkart", "BookLeaf Store"],
+      "stock_status": "In Stock",
+      "sales_breakdown": {
+        "Amazon India": 120,
+        "Flipkart": 45,
+        "BookLeaf Store": 15
+      }
+    },
+    {
+      "id": "book-003",
+      "author_id": "auth-002",
+      "title": "Culinary Chronicles of Bengal",
+      "isbn": "978-93-91234-03-6",
+      "genre": "Non-Fiction / Cooking",
+      "publication_date": "2025-07-20",
+      "status": "Published",
+      "production_stage": "Published & Live",
+      "mrp": 599,
+      "currency": "INR",
+      "page_count": 310,
+      "printing_partner": "Repro India",
+      "package": "Bestseller Breakthrough",
+      "total_copies_sold": 620,
+      "total_royalty_earned": 18600,
+      "royalty_paid": 15000,
+      "royalty_pending": 3600,
+      "distribution_platforms": ["Amazon India", "Flipkart", "BookLeaf Store"],
+      "stock_status": "In Stock",
+      "sales_breakdown": {
+        "Amazon India": 380,
+        "Flipkart": 190,
+        "BookLeaf Store": 50
+      }
+    },
+    {
+      "id": "book-004",
+      "author_id": "auth-002",
+      "title": "Monsoon Melodies",
+      "isbn": "978-93-91234-04-3",
+      "genre": "Poetry",
+      "publication_date": "2026-01-15",
+      "status": "Published",
+      "production_stage": "Published & Live",
+      "mrp": 299,
+      "currency": "INR",
+      "page_count": 96,
+      "printing_partner": "In-House Delhi",
+      "package": "Standard Free",
+      "total_copies_sold": 45,
+      "total_royalty_earned": 675,
+      "royalty_paid": 0,
+      "royalty_pending": 675,
+      "distribution_platforms": ["Amazon India", "BookLeaf Store"],
+      "stock_status": "In Stock",
+      "note": "Pending royalty ₹675 is below the ₹1,000 threshold and rolls over to next quarter.",
+      "sales_breakdown": {
+        "Amazon India": 35,
+        "BookLeaf Store": 10
+      }
+    },
+    {
+      "id": "book-005",
+      "author_id": "auth-003",
+      "title": "Fintech Revolution: India's Digital Leap",
+      "isbn": "978-93-91234-05-0",
+      "genre": "Business & Economics",
+      "publication_date": "2025-02-10",
+      "status": "Published",
+      "production_stage": "Published & Live",
+      "mrp": 699,
+      "currency": "INR",
+      "page_count": 340,
+      "printing_partner": "Epitome Books",
+      "package": "Bestseller Breakthrough",
+      "total_copies_sold": 2150,
+      "total_royalty_earned": 64500,
+      "royalty_paid": 55000,
+      "royalty_pending": 9500,
+      "distribution_platforms": ["Amazon India", "Flipkart", "Amazon US", "BookLeaf Store"],
+      "stock_status": "In Stock",
+      "sales_breakdown": {
+        "Amazon India": 1400,
+        "Flipkart": 520,
+        "Amazon US": 130,
+        "BookLeaf Store": 100
+      }
+    },
+    {
+      "id": "book-006",
+      "author_id": "auth-003",
+      "title": "Corporate Chanakya Reimagined",
+      "isbn": "978-93-91234-06-7",
+      "genre": "Self-Help & Leadership",
+      "publication_date": "2025-11-05",
+      "status": "Published",
+      "production_stage": "Published & Live",
+      "mrp": 450,
+      "currency": "INR",
+      "page_count": 210,
+      "printing_partner": "In-House Delhi",
+      "package": "Standard Free",
+      "total_copies_sold": 340,
+      "total_royalty_earned": 7650,
+      "royalty_paid": 0,
+      "royalty_pending": 7650,
+      "distribution_platforms": ["Amazon India", "Flipkart", "BookLeaf Store"],
+      "stock_status": "In Stock",
+      "sales_breakdown": {
+        "Amazon India": 230,
+        "Flipkart": 90,
+        "BookLeaf Store": 20
+      }
+    },
+    {
+      "id": "book-007",
+      "author_id": "auth-004",
+      "title": "Ayurvedic Living: Mindful Harmony",
+      "isbn": "978-93-91234-07-4",
+      "genre": "Health & Wellness",
+      "publication_date": "2025-08-12",
+      "status": "Published",
+      "production_stage": "Published & Live",
+      "mrp": 499,
+      "currency": "INR",
+      "page_count": 260,
+      "printing_partner": "Repro India",
+      "package": "Bestseller Breakthrough",
+      "total_copies_sold": 890,
+      "total_royalty_earned": 22250,
+      "royalty_paid": 20000,
+      "royalty_pending": 2250,
+      "distribution_platforms": ["Amazon India", "Flipkart", "BookLeaf Store"],
+      "stock_status": "In Stock",
+      "sales_breakdown": {
+        "Amazon India": 590,
+        "Flipkart": 240,
+        "BookLeaf Store": 60
+      }
+    },
+    {
+      "id": "book-008",
+      "author_id": "auth-005",
+      "title": "The Soul's Labyrinth",
+      "isbn": "978-93-91234-08-1",
+      "genre": "Philosophy & Spirituality",
+      "publication_date": "2025-09-01",
+      "status": "Published",
+      "production_stage": "Published & Live",
+      "mrp": 350,
+      "currency": "INR",
+      "page_count": 180,
+      "printing_partner": "In-House Delhi",
+      "package": "Standard Free",
+      "total_copies_sold": 0,
+      "total_royalty_earned": 0,
+      "royalty_paid": 0,
+      "royalty_pending": 0,
+      "distribution_platforms": ["Amazon India", "Flipkart", "BookLeaf Store"],
+      "stock_status": "In Stock",
+      "note": "Edge case: 0 sales, 0 royalties earned.",
+      "sales_breakdown": {
+        "Amazon India": 0,
+        "Flipkart": 0,
+        "BookLeaf Store": 0
+      }
+    },
+    {
+      "id": "book-009",
+      "author_id": "auth-005",
+      "title": "Echoes of the Western Ghats",
+      "isbn": "978-93-91234-09-8",
+      "genre": "Nature & Travel",
+      "publication_date": "2026-02-01",
+      "status": "Published",
+      "production_stage": "Published & Live",
+      "mrp": 549,
+      "currency": "INR",
+      "page_count": 240,
+      "printing_partner": "In-House Delhi",
+      "package": "Standard Free",
+      "total_copies_sold": 110,
+      "total_royalty_earned": 2750,
+      "royalty_paid": 0,
+      "royalty_pending": 2750,
+      "distribution_platforms": ["Amazon India", "Flipkart", "BookLeaf Store"],
+      "stock_status": "In Stock",
+      "sales_breakdown": {
+        "Amazon India": 75,
+        "Flipkart": 25,
+        "BookLeaf Store": 10
+      }
+    },
+    {
+      "id": "book-010",
+      "author_id": "auth-006",
+      "title": "Silicon Valley Desi",
+      "isbn": "978-1-954321-10-5",
+      "genre": "Contemporary Fiction",
+      "publication_date": "2025-05-18",
+      "status": "Published",
+      "production_stage": "Published & Live",
+      "mrp": 1249,
+      "currency": "INR",
+      "page_count": 320,
+      "printing_partner": "Repro India",
+      "package": "Bestseller Breakthrough",
+      "total_copies_sold": 950,
+      "total_royalty_earned": 47500,
+      "royalty_paid": 40000,
+      "royalty_pending": 7500,
+      "distribution_platforms": ["Amazon US", "Amazon UK", "Amazon India", "BookLeaf Store"],
+      "stock_status": "In Stock",
+      "sales_breakdown": {
+        "Amazon US": 520,
+        "Amazon UK": 180,
+        "Amazon India": 210,
+        "BookLeaf Store": 40
+      }
+    },
+    {
+      "id": "book-011",
+      "author_id": "auth-007",
+      "title": "The Art of Algorithmic Thinking",
+      "isbn": "978-93-91234-11-1",
+      "genre": "Computer Science / Education",
+      "publication_date": "2025-06-25",
+      "status": "Published",
+      "production_stage": "Published & Live",
+      "mrp": 799,
+      "currency": "INR",
+      "page_count": 410,
+      "printing_partner": "Epitome Books",
+      "package": "Bestseller Breakthrough",
+      "total_copies_sold": 1800,
+      "total_royalty_earned": 57600,
+      "royalty_paid": 50000,
+      "royalty_pending": 7600,
+      "distribution_platforms": ["Amazon India", "Flipkart", "Amazon US", "BookLeaf Store"],
+      "stock_status": "In Stock",
+      "sales_breakdown": {
+        "Amazon India": 1200,
+        "Flipkart": 380,
+        "Amazon US": 140,
+        "BookLeaf Store": 80
+      }
+    },
+    {
+      "id": "book-012",
+      "author_id": "auth-007",
+      "title": "Competitive Programming Mastery",
+      "isbn": "978-93-91234-12-8",
+      "genre": "Education",
+      "publication_date": "2025-12-14",
+      "status": "Published",
+      "production_stage": "Published & Live",
+      "mrp": 650,
+      "currency": "INR",
+      "page_count": 330,
+      "printing_partner": "In-House Delhi",
+      "package": "Standard Free",
+      "total_copies_sold": 420,
+      "total_royalty_earned": 10920,
+      "royalty_paid": 0,
+      "royalty_pending": 10920,
+      "distribution_platforms": ["Amazon India", "Flipkart", "BookLeaf Store"],
+      "stock_status": "In Stock",
+      "sales_breakdown": {
+        "Amazon India": 310,
+        "Flipkart": 80,
+        "BookLeaf Store": 30
+      }
+    },
+    {
+      "id": "book-013",
+      "author_id": "auth-008",
+      "title": "Silent Symphony of Starlight",
+      "isbn": "978-93-91234-13-5",
+      "genre": "Poetry & Romance",
+      "publication_date": "2025-03-30",
+      "status": "Published",
+      "production_stage": "Published & Live",
+      "mrp": 325,
+      "currency": "INR",
+      "page_count": 112,
+      "printing_partner": "In-House Delhi",
+      "package": "Standard Free",
+      "total_copies_sold": 530,
+      "total_royalty_earned": 8612,
+      "royalty_paid": 8612,
+      "royalty_pending": 0,
+      "distribution_platforms": ["Amazon India", "Flipkart", "BookLeaf Store"],
+      "stock_status": "In Stock",
+      "sales_breakdown": {
+        "Amazon India": 380,
+        "Flipkart": 110,
+        "BookLeaf Store": 40
+      }
+    },
+    {
+      "id": "book-014",
+      "author_id": "auth-008",
+      "title": "Kolkata Nostalgia: Trams and Rain",
+      "isbn": "978-93-91234-14-2",
+      "genre": "Memoir",
+      "publication_date": "2025-11-20",
+      "status": "Published",
+      "production_stage": "Published & Live",
+      "mrp": 399,
+      "currency": "INR",
+      "page_count": 175,
+      "printing_partner": "In-House Delhi",
+      "package": "Standard Free",
+      "total_copies_sold": 75,
+      "total_royalty_earned": 890,
+      "royalty_paid": 0,
+      "royalty_pending": 890,
+      "distribution_platforms": ["Amazon India", "Flipkart", "BookLeaf Store"],
+      "stock_status": "In Stock",
+      "note": "Pending royalty ₹890 is below ₹1,000 threshold and rolls over to next quarter.",
+      "sales_breakdown": {
+        "Amazon India": 50,
+        "Flipkart": 20,
+        "BookLeaf Store": 5
+      }
+    },
+    {
+      "id": "book-015",
+      "author_id": "auth-009",
+      "title": "Crossroads of the Atlantic",
+      "isbn": "978-1-954321-15-0",
+      "genre": "Historical Fiction",
+      "publication_date": "2025-08-05",
+      "status": "Published",
+      "production_stage": "Published & Live",
+      "mrp": 1415,
+      "currency": "INR",
+      "page_count": 390,
+      "printing_partner": "Repro India",
+      "package": "Bestseller Breakthrough",
+      "total_copies_sold": 780,
+      "total_royalty_earned": 39000,
+      "royalty_paid": 35000,
+      "royalty_pending": 4000,
+      "distribution_platforms": ["Amazon US", "Amazon UK", "Amazon India", "BookLeaf Store"],
+      "stock_status": "In Stock",
+      "sales_breakdown": {
+        "Amazon US": 480,
+        "Amazon UK": 170,
+        "Amazon India": 110,
+        "BookLeaf Store": 20
+      }
+    },
+    {
+      "id": "book-016",
+      "author_id": "auth-009",
+      "title": "The New England Gothic",
+      "isbn": "978-1-954321-16-7",
+      "genre": "Horror & Suspense",
+      "publication_date": "2026-01-22",
+      "status": "Published",
+      "production_stage": "Published & Live",
+      "mrp": 1165,
+      "currency": "INR",
+      "page_count": 270,
+      "printing_partner": "In-House Delhi",
+      "package": "Standard Free",
+      "total_copies_sold": 210,
+      "total_royalty_earned": 8400,
+      "royalty_paid": 0,
+      "royalty_pending": 8400,
+      "distribution_platforms": ["Amazon US", "Amazon UK", "BookLeaf Store"],
+      "stock_status": "In Stock",
+      "sales_breakdown": {
+        "Amazon US": 160,
+        "Amazon UK": 35,
+        "BookLeaf Store": 15
+      }
+    },
+    {
+      "id": "book-017",
+      "author_id": "auth-010",
+      "title": "The Quantum Frontier",
+      "isbn": null,
+      "genre": "Science Fiction",
+      "publication_date": null,
+      "status": "In Production",
+      "production_stage": "Typesetting",
+      "mrp": 599,
+      "currency": "INR",
+      "page_count": 310,
+      "printing_partner": "In-House Delhi",
+      "package": "Standard Free",
+      "total_copies_sold": 0,
+      "total_royalty_earned": 0,
+      "royalty_paid": 0,
+      "royalty_pending": 0,
+      "distribution_platforms": [],
+      "stock_status": "In Production",
+      "production_details": {
+        "manuscript_received_at": "2026-02-10",
+        "current_stage": "Typesetting",
+        "stage_started_at": "2026-02-28",
+        "waiting_on": "Author approval of interior galley proofs",
+        "estimated_completion": "2026-04-15"
+      },
+      "sales_breakdown": {}
+    },
+    {
+      "id": "book-018",
+      "author_id": "auth-010",
+      "title": "Voices from the Rust Belt",
+      "isbn": null,
+      "genre": "Social Sciences / Essays",
+      "publication_date": null,
+      "status": "In Production",
+      "production_stage": "Proofreading",
+      "mrp": 450,
+      "currency": "INR",
+      "page_count": 230,
+      "printing_partner": "In-House Delhi",
+      "package": "Standard Free",
+      "total_copies_sold": 0,
+      "total_royalty_earned": 0,
+      "royalty_paid": 0,
+      "royalty_pending": 0,
+      "distribution_platforms": [],
+      "stock_status": "In Production",
+      "production_details": {
+        "manuscript_received_at": "2026-01-20",
+        "current_stage": "Proofreading",
+        "stage_started_at": "2026-03-01",
+        "waiting_on": "Second revision pass with editor",
+        "estimated_completion": "2026-04-30"
+      },
+      "sales_breakdown": {}
+    }
+  ],
+  "sample_tickets": [
+    {
+      "id": "tkt-101",
+      "author_id": "auth-001",
+      "book_id": "book-001",
+      "subject": "Delayed royalty payment for Q3 cycle",
+      "description": "I published my book 4 months ago and still haven't received any royalty. What's going on?",
+      "status": "In Progress",
+      "ai_category": "Royalty & Payments",
+      "ai_priority": "High",
+      "ai_priority_score": 85,
+      "ai_rationale": "Author reports delay exceeding 4 months with overdue payment inquiry. High financial sensitivity.",
+      "category_override": null,
+      "priority_override": null,
+      "assigned_to": "admin-001",
+      "created_at": "2026-03-10T10:15:00Z",
+      "updated_at": "2026-03-11T11:20:00Z",
+      "messages": [
+        {
+          "id": "msg-101-1",
+          "sender_id": "auth-001",
+          "sender_role": "author",
+          "sender_name": "Aarav Sharma",
+          "message": "I published my book 4 months ago and still haven't received any royalty. What's going on?",
+          "created_at": "2026-03-10T10:15:00Z"
+        },
+        {
+          "id": "msg-101-2",
+          "sender_id": "admin-001",
+          "sender_role": "admin",
+          "sender_name": "Priya Sharma",
+          "message": "Dear Aarav,\n\nI completely understand your concern regarding your royalty payout for 'The Whispering Embers'. We truly appreciate your patience.\n\nAt BookLeaf, royalties are calculated on a quarterly basis and disbursed within 45 days of the quarter ending. For your publication window, the Q3 payout cycle closed on September 30, and transfers are currently being processed. According to our records, your pending royalty stands at ₹5,500 with HDFC Bank account ending in 4821 verified. Our accounts team has already queued the bank transfer, and you will receive the disbursement within 48 hours.\n\nWe will update you with the UTR transaction number as soon as it clears. Please feel free to reply directly if you need any additional breakdown.",
+          "created_at": "2026-03-11T11:20:00Z"
+        }
+      ],
+      "internal_notes": [
+        {
+          "id": "note-101-1",
+          "admin_id": "admin-001",
+          "admin_name": "Priya Sharma",
+          "note": "Checked batch disbursement #IN-Q3-091. Payment gateway had a transient batch hold on March 8. Finance confirmed release scheduled for tomorrow morning.",
+          "created_at": "2026-03-11T11:15:00Z"
+        }
+      ]
+    },
+    {
+      "id": "tkt-102",
+      "author_id": "auth-003",
+      "book_id": "book-005",
+      "subject": "Royalty calculation breakdown inquiry",
+      "description": "My royalty amount seems too low. I sold 200 copies on Amazon last month but only received ₹3,000.",
+      "status": "Open",
+      "ai_category": "Royalty & Payments",
+      "ai_priority": "Medium",
+      "ai_priority_score": 60,
+      "ai_rationale": "Author questioning formula breakdown and net profit computation. Medium priority financial clarity query.",
+      "category_override": null,
+      "priority_override": null,
+      "assigned_to": null,
+      "created_at": "2026-03-12T09:40:00Z",
+      "updated_at": "2026-03-12T09:40:00Z",
+      "messages": [
+        {
+          "id": "msg-102-1",
+          "sender_id": "auth-003",
+          "sender_role": "author",
+          "sender_name": "Rajesh Kothari",
+          "message": "My royalty amount seems too low. I sold 200 copies on Amazon last month but only received ₹3,000.",
+          "created_at": "2026-03-12T09:40:00Z"
+        }
+      ],
+      "internal_notes": []
+    },
+    {
+      "id": "tkt-103",
+      "author_id": "auth-006",
+      "book_id": "book-010",
+      "subject": "URGENT: Mismatched ISBN on Amazon listing",
+      "description": "My book is showing a different ISBN on Amazon than what's printed on the physical copy! Readers are complaining.",
+      "status": "Open",
+      "ai_category": "ISBN & Metadata Issues",
+      "ai_priority": "Critical",
+      "ai_priority_score": 95,
+      "ai_rationale": "ISBN mismatch on public commercial retail platform leads to catastrophic delivery and listing failures. Treated as critical metadata escalation.",
+      "category_override": null,
+      "priority_override": null,
+      "assigned_to": "admin-001",
+      "created_at": "2026-03-12T14:22:00Z",
+      "updated_at": "2026-03-12T14:22:00Z",
+      "messages": [
+        {
+          "id": "msg-103-1",
+          "sender_id": "auth-006",
+          "sender_role": "author",
+          "sender_name": "Maya Iyer",
+          "message": "My book is showing a different ISBN on Amazon than what's printed on the physical copy! Readers are complaining.",
+          "created_at": "2026-03-12T14:22:00Z"
+        }
+      ],
+      "internal_notes": [
+        {
+          "id": "note-103-1",
+          "admin_id": "admin-001",
+          "admin_name": "Priya Sharma",
+          "note": "Production logs show imprint assignment 978-1-954321-10-5 was uploaded to Bowker correctly, but IngramSpark sync pushed the fallback test ISBN. Escalated ticket to production team head.",
+          "created_at": "2026-03-12T14:30:00Z"
+        }
+      ]
+    },
+    {
+      "id": "tkt-104",
+      "author_id": "auth-002",
+      "book_id": "book-003",
+      "subject": "Author copies received with misaligned print and blurry images",
+      "description": "I received my author copies and the print quality is terrible. The images are blurry and pages are misaligned.",
+      "status": "In Progress",
+      "ai_category": "Printing & Quality",
+      "ai_priority": "High",
+      "ai_priority_score": 80,
+      "ai_rationale": "Author copy quality defect with binding/registration issues. Eligible for immediate complimentary reprint under BookLeaf warranty.",
+      "category_override": null,
+      "priority_override": null,
+      "assigned_to": "admin-002",
+      "created_at": "2026-03-11T16:05:00Z",
+      "updated_at": "2026-03-12T10:00:00Z",
+      "messages": [
+        {
+          "id": "msg-104-1",
+          "sender_id": "auth-002",
+          "sender_role": "author",
+          "sender_name": "Priya Sen",
+          "message": "I received my author copies and the print quality is terrible. The images are blurry and pages are misaligned.",
+          "created_at": "2026-03-11T16:05:00Z"
+        },
+        {
+          "id": "msg-104-2",
+          "sender_id": "admin-002",
+          "sender_role": "admin",
+          "sender_name": "Kabir Verma",
+          "message": "Dear Priya,\n\nI am deeply sorry to hear about the print quality of your author copies. Authors are our creative partners, and receiving copies that do not reflect your hard work is entirely unacceptable to us.\n\nPlease share high-resolution photos of the defective copies, particularly highlighting the misaligned pages and blurry images, by replying to this ticket or uploading them here. As per BookLeaf's Quality Policy, once verified, we will arrange a 100% free reprint of your copies via our partner Repro India within 5–7 business days.\n\nWe will expedite this batch and ensure strict QA inspection before dispatch.",
+          "created_at": "2026-03-12T10:00:00Z"
+        }
+      ],
+      "internal_notes": []
+    },
+    {
+      "id": "tkt-105",
+      "author_id": "auth-009",
+      "book_id": "book-015",
+      "subject": "Amazon listing showing 'Currently Unavailable'",
+      "description": "My book is published but it's showing as 'Currently Unavailable' on Amazon. I have a book club event this weekend!",
+      "status": "Open",
+      "ai_category": "Distribution & Availability",
+      "ai_priority": "High",
+      "ai_priority_score": 75,
+      "ai_rationale": "Commercial unavailability on primary sales channel during an author event. Requires urgent catalog re-sync.",
+      "category_override": null,
+      "priority_override": null,
+      "assigned_to": null,
+      "created_at": "2026-03-12T16:40:00Z",
+      "updated_at": "2026-03-12T16:40:00Z",
+      "messages": [
+        {
+          "id": "msg-105-1",
+          "sender_id": "auth-009",
+          "sender_role": "author",
+          "sender_name": "David Miller",
+          "message": "My book is published but it's showing as 'Currently Unavailable' on Amazon. I have a book club event this weekend!",
+          "created_at": "2026-03-12T16:40:00Z"
+        }
+      ],
+      "internal_notes": []
+    },
+    {
+      "id": "tkt-106",
+      "author_id": "auth-010",
+      "book_id": "book-017",
+      "subject": "Typesetting timeline update request",
+      "description": "It's been 3 weeks and my book is still in typesetting. When will it be done?",
+      "status": "Open",
+      "ai_category": "Book Status & Production Updates",
+      "ai_priority": "Medium",
+      "ai_priority_score": 55,
+      "ai_rationale": "Author seeking production milestone update. Book currently in Typesetting stage awaiting author approval of interior proofs.",
+      "category_override": null,
+      "priority_override": null,
+      "assigned_to": null,
+      "created_at": "2026-03-13T08:30:00Z",
+      "updated_at": "2026-03-13T08:30:00Z",
+      "messages": [
+        {
+          "id": "msg-106-1",
+          "sender_id": "auth-010",
+          "sender_role": "author",
+          "sender_name": "Sarah Jenkins",
+          "message": "It's been 3 weeks and my book is still in typesetting. When will it be done?",
+          "created_at": "2026-03-13T08:30:00Z"
+        }
+      ],
+      "internal_notes": []
+    },
+    {
+      "id": "tkt-107",
+      "author_id": "auth-004",
+      "book_id": "book-007",
+      "subject": "Updating description and author bio on Amazon",
+      "description": "Can I update the description of my book on Amazon after it's already live? I've won a local award and want to add that.",
+      "status": "Resolved",
+      "ai_category": "General Inquiry",
+      "ai_priority": "Low",
+      "ai_priority_score": 30,
+      "ai_rationale": "Routine metadata update request without operational blocker or defect.",
+      "category_override": null,
+      "priority_override": null,
+      "assigned_to": "admin-002",
+      "created_at": "2026-03-08T11:10:00Z",
+      "updated_at": "2026-03-09T14:00:00Z",
+      "messages": [
+        {
+          "id": "msg-107-1",
+          "sender_id": "auth-004",
+          "sender_role": "author",
+          "sender_name": "Sunita Patel",
+          "message": "Can I update the description of my book on Amazon after it's already live? I've won a local award and want to add that.",
+          "created_at": "2026-03-08T11:10:00Z"
+        },
+        {
+          "id": "msg-107-2",
+          "sender_id": "admin-002",
+          "sender_role": "admin",
+          "sender_name": "Kabir Verma",
+          "message": "Dear Sunita,\n\nFirst of all, huge congratulations on winning the local award for 'Ayurvedic Living: Mindful Harmony'! That is wonderful news.\n\nYes, metadata updates such as your book description and author bio can definitely be updated even after the book is live. You can submit the revised text directly in this ticket or email our metadata desk. Once submitted, our team will push the updates across Amazon India, Flipkart, and the BookLeaf Store, and the revisions typically reflect on platforms within 3–5 business days.\n\nPlease share the updated description whenever you're ready, and we will take care of the rest!",
+          "created_at": "2026-03-09T14:00:00Z"
+        }
+      ],
+      "internal_notes": [
+        {
+          "id": "note-107-1",
+          "admin_id": "admin-002",
+          "admin_name": "Kabir Verma",
+          "note": "Author updated bio successfully on Amazon Seller central batch #904. Closing ticket as resolved.",
+          "created_at": "2026-03-09T14:00:00Z"
+        }
+      ]
+    }
+  ]
+}

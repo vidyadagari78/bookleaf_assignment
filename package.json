@@ -1,0 +1,35 @@
+{
+  "name": "bookleaf-author-portal",
+  "version": "1.0.0",
+  "description": "BookLeaf Publishing Author Support & Communication Portal with AI-assisted classification and response generation",
+  "main": "server/src/server.js",
+  "scripts": {
+    "start": "node server/src/server.js",
+    "dev": "node server/src/server.js",
+    "dev:client": "npm --prefix client run dev",
+    "build": "npm --prefix client run build",
+    "test": "node server/test-api.js",
+    "seed": "node -e \"const { seedDatabase } = require('./server/src/database/db'); seedDatabase(true);\""
+  },
+  "keywords": [
+    "bookleaf",
+    "publishing",
+    "author-portal",
+    "ai-support",
+    "realtime"
+  ],
+  "author": "BookLeaf Engineering Team",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "better-sqlite3": "^13.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.7",
+    "express": "^5.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "multer": "^2.4.0",
+    "swagger-ui-express": "^5.0.1",
+    "ws": "^8.22.0",
+    "zod": "^4.6.7"
+  }
+}
