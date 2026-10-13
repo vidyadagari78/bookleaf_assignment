@@ -7,7 +7,10 @@ import {
   Sparkles, 
   CheckCircle2, 
   AlertCircle,
-  FileText
+  FileText,
+  BookOpen,
+  MessageSquare,
+  ArrowRight
 } from 'lucide-react';
 import { api } from '../../services/api';
 
@@ -23,14 +26,14 @@ export function SubmitQuery({ books, preselectedBookId, onTicketCreated }) {
   // Policy context hint based on user typing
   const lowerText = `${subject} ${description}`.toLowerCase();
   let policyHint = null;
-  if (lowerText.includes('royalty') || lowerText.includes('payment') || lowerText.includes('threshold')) {
-    policyHint = '💡 Tip: BookLeaf calculates royalties quarterly (80/20 split) and disburses within 45 days. Minimum payout threshold is ₹1,000 (balances below roll over).';
-  } else if (lowerText.includes('isbn') || lowerText.includes('mismatch')) {
-    policyHint = '⚡ Note: ISBN mismatch reports are treated with critical priority and escalated directly to our production desk for 48-hour resolution.';
+  if (lowerText.includes('royalty') || lowerText.includes('payment') || lowerText.includes('threshold') || lowerText.includes('money')) {
+    policyHint = '💡 Tip: BookLeaf calculates royalties quarterly (80/20 split) and disburses within 45 days. Minimum payout threshold is ₹1,000 (balances below roll over automatically).';
+  } else if (lowerText.includes('isbn') || lowerText.includes('mismatch') || lowerText.includes('barcode')) {
+    policyHint = '⚡ Priority SLA: ISBN mismatch reports are treated with Critical priority and escalated directly to our production desk for 48-hour resolution.';
   } else if (lowerText.includes('print') || lowerText.includes('quality') || lowerText.includes('blurry') || lowerText.includes('misalign')) {
-    policyHint = '📷 Tip: For print defects, please describe the issue in detail. You can attach photos of the defective copies below for our free reprint warranty.';
-  } else if (lowerText.includes('amazon') || lowerText.includes('unavailable')) {
-    policyHint = '🔄 Note: Amazon "Currently Unavailable" listings are typically stock sync lags. Our operations team can trigger a manual re-sync within 24–48 hours.';
+    policyHint = '📷 Quality Warranty: For printing defects, describe the issue and attach clear photos below. BookLeaf provides a 100% free reprint once verified.';
+  } else if (lowerText.includes('amazon') || lowerText.includes('unavailable') || lowerText.includes('out of stock')) {
+    policyHint = '🔄 Catalog Sync: Amazon "Currently Unavailable" listings are typically automated stock sync desyncs. Our team triggers manual re-syncs within 24–48 hours.';
   }
 
   function handleFileSelect(e) {
@@ -47,7 +50,7 @@ export function SubmitQuery({ books, preselectedBookId, onTicketCreated }) {
   async function handleSubmit(e) {
     e.preventDefault();
     if (!subject.trim() || !description.trim()) {
-      setError('Please provide both a subject and a detailed query description.');
+      setError('Please provide both a subject line and a detailed description.');
       return;
     }
 
@@ -76,64 +79,71 @@ export function SubmitQuery({ books, preselectedBookId, onTicketCreated }) {
   }
 
   return (
-    <div style={{ maxWidth: '820px', margin: '0 auto' }}>
-      <div style={{ marginBottom: '1.5rem' }}>
-        <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.45rem', fontWeight: 700, color: '#ffffff' }}>
-          Raise a Support Query
+    <div style={{ maxWidth: '840px', margin: '0 auto' }}>
+      <div style={{ marginBottom: '1.75rem', textAlign: 'center' }}>
+        <div className="hero-badge-tag" style={{ margin: '0 auto 0.75rem' }}>
+          <Sparkles size={14} />
+          <span>Operations Support Desk</span>
+        </div>
+        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.75rem', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.02em' }}>
+          Submit an Author Support Query
         </h2>
-        <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-          Our operations desk and AI-assisted support team will review your query and respond promptly.
+        <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', maxWidth: '580px', margin: '0.35rem auto 0' }}>
+          Our operations team and AI-assisted triage engine will review your request, ground it in BookLeaf policies, and respond promptly.
         </p>
       </div>
 
       {submittedTicket ? (
-        <div className="glass-panel" style={{ padding: '2rem', textAlign: 'center', borderColor: 'rgba(16, 185, 129, 0.4)' }}>
+        /* Submission Success & AI Triaging Confirmation Screen */
+        <div className="glass-panel" style={{ padding: '2.5rem', textAlign: 'center', borderColor: 'rgba(16, 185, 129, 0.45)', boxShadow: '0 0 35px rgba(16, 185, 129, 0.12)' }}>
           <div style={{
-            width: '56px',
-            height: '56px',
+            width: '64px',
+            height: '64px',
             borderRadius: '50%',
-            background: 'var(--primary-light)',
-            color: 'var(--primary)',
+            background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(5, 150, 105, 0.1))',
+            color: '#34d399',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            margin: '0 auto 1.25rem'
+            margin: '0 auto 1.25rem',
+            border: '1px solid rgba(16, 185, 129, 0.4)',
+            boxShadow: '0 0 20px rgba(16, 185, 129, 0.3)'
           }}>
-            <CheckCircle2 size={32} />
+            <CheckCircle2 size={36} />
           </div>
 
-          <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: 700, marginBottom: '0.5rem' }}>
-            Ticket Submitted Successfully!
+          <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.45rem', fontWeight: 800, marginBottom: '0.4rem', color: '#ffffff' }}>
+            Support Ticket Registered Successfully
           </h3>
-          <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '1.5rem' }}>
-            Ticket reference: <strong style={{ color: '#ffffff' }}>#{submittedTicket.id}</strong>. Our team has received your query and auto-triaged it with our operations desk.
+          <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', marginBottom: '1.75rem' }}>
+            Ticket ID: <strong style={{ color: '#ffffff', fontFamily: 'var(--font-code)' }}>#{submittedTicket.id}</strong>. Our team has received your inquiry and initialized automated AI triaging.
           </p>
 
           <div style={{
-            background: 'var(--bg-surface-elevated)',
+            background: 'rgba(22, 34, 60, 0.75)',
             borderRadius: 'var(--radius-md)',
-            padding: '1rem',
-            maxWidth: '520px',
-            margin: '0 auto 1.5rem',
+            padding: '1.25rem',
+            maxWidth: '560px',
+            margin: '0 auto 1.75rem',
             textAlign: 'left',
-            border: '1px solid var(--border-subtle)'
+            border: '1px solid var(--border-glass)'
           }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.4rem', fontSize: '0.8rem' }}>
-              <span style={{ color: 'var(--text-muted)' }}>AI Auto-Classification:</span>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.65rem' }}>
+              <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontWeight: 600 }}>AI Auto-Classification:</span>
               <span className="badge badge-category">{submittedTicket.ai_category}</span>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.4rem', fontSize: '0.8rem' }}>
-              <span style={{ color: 'var(--text-muted)' }}>Priority Level:</span>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.65rem' }}>
+              <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontWeight: 600 }}>Assigned Priority:</span>
               <span className={`badge badge-priority-${submittedTicket.ai_priority?.toLowerCase()}`}>
                 {submittedTicket.ai_priority} (Score: {submittedTicket.ai_priority_score}/100)
               </span>
             </div>
-            <div style={{ fontSize: '0.75rem', color: 'var(--text-dim)', marginTop: '0.4rem' }}>
-              {submittedTicket.ai_rationale}
+            <div style={{ fontSize: '0.76rem', color: 'var(--text-dim)', marginTop: '0.6rem', borderTop: '1px solid var(--border-glass)', paddingTop: '0.6rem', lineHeight: '1.5' }}>
+              <strong>AI Triage Rationale:</strong> {submittedTicket.ai_rationale}
             </div>
           </div>
 
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '0.75rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '0.85rem' }}>
             <button 
               className="btn btn-secondary"
               onClick={() => setSubmittedTicket(null)}
@@ -146,21 +156,23 @@ export function SubmitQuery({ books, preselectedBookId, onTicketCreated }) {
                 if (onTicketCreated) onTicketCreated(submittedTicket);
               }}
             >
-              View in My Tickets
+              <span>View in My Tickets</span>
+              <ArrowRight size={14} />
             </button>
           </div>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="glass-panel" style={{ padding: '1.75rem' }}>
+        /* Ticket Form */
+        <form onSubmit={handleSubmit} className="glass-panel" style={{ padding: '2rem' }}>
           {error && (
             <div style={{
               background: 'rgba(239, 68, 68, 0.15)',
               border: '1px solid rgba(239, 68, 68, 0.35)',
               borderRadius: 'var(--radius-md)',
-              padding: '0.75rem 1rem',
+              padding: '0.85rem 1.15rem',
               color: '#f87171',
               fontSize: '0.85rem',
-              marginBottom: '1.25rem',
+              marginBottom: '1.5rem',
               display: 'flex',
               alignItems: 'center',
               gap: '0.5rem'
@@ -170,10 +182,10 @@ export function SubmitQuery({ books, preselectedBookId, onTicketCreated }) {
             </div>
           )}
 
-          {/* Book Selection Dropdown */}
-          <div className="form-group">
-            <label className="form-label">
-              Select Book / Subject Area <span style={{ color: '#ef4444' }}>*</span>
+          {/* Book Dropdown */}
+          <div style={{ marginBottom: '1.35rem' }}>
+            <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 700, color: '#e2e8f0', marginBottom: '0.5rem' }}>
+              Select Book Title / Area <span style={{ color: '#ef4444' }}>*</span>
             </label>
             <select 
               className="form-select"
@@ -190,73 +202,72 @@ export function SubmitQuery({ books, preselectedBookId, onTicketCreated }) {
           </div>
 
           {/* Subject Line */}
-          <div className="form-group">
-            <label className="form-label">
+          <div style={{ marginBottom: '1.35rem' }}>
+            <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 700, color: '#e2e8f0', marginBottom: '0.5rem' }}>
               Subject Line <span style={{ color: '#ef4444' }}>*</span>
             </label>
             <input 
               type="text"
               className="form-input"
-              placeholder="e.g. When will my Q3 royalty payment be disbursed? or Print defect on author copies"
+              placeholder="e.g. When will my Q3 royalty payment disburse? or Defective spine on author copies"
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
               required
             />
           </div>
 
-          {/* Description */}
-          <div className="form-group">
-            <label className="form-label">
+          {/* Description Field */}
+          <div style={{ marginBottom: '1.35rem' }}>
+            <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 700, color: '#e2e8f0', marginBottom: '0.5rem' }}>
               Detailed Query Description <span style={{ color: '#ef4444' }}>*</span>
             </label>
             <textarea 
               className="form-textarea"
               rows={5}
-              placeholder="Please provide full details about your concern, including any relevant dates, order numbers, or screenshots..."
+              placeholder="Please provide full details about your concern, including any order numbers, sales figures, platforms, or dates..."
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               required
             />
           </div>
 
-          {/* Real-time Policy Hint */}
+          {/* Dynamic Policy Context Hint */}
           {policyHint && (
             <div style={{
-              background: 'rgba(56, 189, 248, 0.08)',
-              border: '1px solid rgba(56, 189, 248, 0.25)',
+              background: 'linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(15, 23, 42, 0.8))',
+              border: '1px solid rgba(56, 189, 248, 0.3)',
               borderRadius: 'var(--radius-md)',
-              padding: '0.75rem 1rem',
-              fontSize: '0.8rem',
+              padding: '0.85rem 1.15rem',
+              fontSize: '0.82rem',
               color: '#bae6fd',
-              marginBottom: '1.25rem',
+              marginBottom: '1.5rem',
               display: 'flex',
               alignItems: 'center',
-              gap: '0.5rem',
-              animation: 'fadeIn 0.2s ease'
+              gap: '0.65rem'
             }}>
               <span>{policyHint}</span>
             </div>
           )}
 
-          {/* File Attachment Support (UI upload simulation with preview) */}
-          <div className="form-group">
-            <label className="form-label">
-              Attachment (Optional — Photos of defect, royalty statements, screenshots)
+          {/* File Attachment Dropzone */}
+          <div style={{ marginBottom: '1.75rem' }}>
+            <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 700, color: '#e2e8f0', marginBottom: '0.5rem' }}>
+              Attachment (Optional — Photos of defect, sales reports, or receipts)
             </label>
             {attachment ? (
               <div style={{
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
-                background: 'var(--bg-surface-elevated)',
-                padding: '0.65rem 0.95rem',
-                borderRadius: 'var(--radius-md)',
-                border: '1px solid var(--border-subtle)'
+                background: 'rgba(22, 34, 60, 0.75)',
+                padding: '0.75rem 1.1rem',
+                borderRadius: 'var(--radius-sm)',
+                border: '1px solid var(--border-glass)'
               }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <FileText size={18} style={{ color: 'var(--primary)' }} />
-                  <span style={{ fontSize: '0.82rem', fontWeight: 600 }}>{attachment.name}</span>
-                  <span style={{ fontSize: '0.72rem', color: 'var(--text-dim)' }}>({attachment.size})</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+                  <FileText size={20} style={{ color: 'var(--primary)' }} />
+                  <span style={{ fontSize: '0.86rem', fontWeight: 700, color: '#ffffff' }}>{attachment.name}</span>
+                  <span style={{ fontSize: '0.75rem', color: 'var(--text-dim)' }}>({attachment.size})</span>
                 </div>
                 <button 
                   type="button" 
@@ -264,7 +275,7 @@ export function SubmitQuery({ books, preselectedBookId, onTicketCreated }) {
                   onClick={() => setAttachment(null)}
                   title="Remove attachment"
                 >
-                  <X size={16} />
+                  <X size={18} />
                 </button>
               </div>
             ) : (
@@ -272,18 +283,18 @@ export function SubmitQuery({ books, preselectedBookId, onTicketCreated }) {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                gap: '0.5rem',
-                padding: '1rem',
-                border: '2px dashed var(--border-subtle)',
+                gap: '0.65rem',
+                padding: '1.25rem',
+                border: '2px dashed var(--border-glass)',
                 borderRadius: 'var(--radius-md)',
                 cursor: 'pointer',
                 background: 'rgba(255, 255, 255, 0.02)',
                 color: 'var(--text-muted)',
-                fontSize: '0.82rem',
-                transition: 'border-color 0.2s'
+                fontSize: '0.84rem',
+                transition: 'all 0.2s ease'
               }}>
-                <Paperclip size={16} />
-                <span>Click or drop image / PDF file to attach (Max 10MB)</span>
+                <Paperclip size={18} />
+                <span>Click to browse or drop screenshots / PDF files (Max 10MB)</span>
                 <input 
                   type="file" 
                   style={{ display: 'none' }} 
@@ -294,12 +305,13 @@ export function SubmitQuery({ books, preselectedBookId, onTicketCreated }) {
             )}
           </div>
 
-          <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '1.5rem' }}>
+          {/* Form Actions */}
+          <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
             <button 
               type="submit" 
               className="btn btn-primary"
               disabled={isSubmitting}
-              style={{ minWidth: '160px' }}
+              style={{ minWidth: '180px', padding: '0.75rem 1.4rem' }}
             >
               <Send size={16} />
               <span>{isSubmitting ? 'Triaging with AI...' : 'Submit Support Ticket'}</span>
