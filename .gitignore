@@ -2,8 +2,7 @@
 node_modules/
 client/node_modules/
 
-# Build artifacts
-client/dist/
+# Build artifacts (excluding client/dist so prebuilt SPA is served out of the box)
 dist/
 
 # SQLite databases & runtime data
