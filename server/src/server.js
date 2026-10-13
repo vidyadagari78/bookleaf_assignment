@@ -61,15 +61,15 @@ if (fs.existsSync(openapiSpecPath)) {
   app.get('/api/v1/docs.json', (req, res) => res.json(openapiSpec));
 }
 
-// API Routes
-app.use('/api/v1/auth', authRoutes);
-app.use('/api/v1/books', bookRoutes);
-app.use('/api/v1/tickets', ticketRoutes);
-app.use('/api/v1/admin', adminRoutes);
-app.use('/api/v1/system', systemRoutes);
+// API Routes (Supports both /api/v1 and /api prefixes)
+app.use(['/api/v1/auth', '/api/auth'], authRoutes);
+app.use(['/api/v1/books', '/api/books'], bookRoutes);
+app.use(['/api/v1/tickets', '/api/tickets'], ticketRoutes);
+app.use(['/api/v1/admin', '/api/admin'], adminRoutes);
+app.use(['/api/v1/system', '/api/system'], systemRoutes);
 
 // Root API Welcome probe
-app.get('/api/v1', (req, res) => {
+app.get(['/api/v1', '/api'], (req, res) => {
   res.json({
     name: 'BookLeaf Publishing Author Support & Communication Portal API',
     version: '1.0.0',

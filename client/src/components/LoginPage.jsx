@@ -89,6 +89,44 @@ export function LoginPage() {
           </div>
         )}
 
+        {/* Quick Credentials Info Box */}
+        <div style={{
+          background: 'rgba(16, 185, 129, 0.08)',
+          border: '1px solid rgba(16, 185, 129, 0.3)',
+          borderRadius: 'var(--radius-md)',
+          padding: '0.75rem 1rem',
+          marginBottom: '1.25rem',
+          fontSize: '0.78rem',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          gap: '0.5rem'
+        }}>
+          <div>
+            <div style={{ color: '#a7f3d0', fontWeight: 700 }}>Test Account Credentials:</div>
+            <div style={{ color: 'var(--text-dim)', fontSize: '0.72rem', marginTop: '2px' }}>
+              Author Pass: <code style={{ color: '#fde68a', fontFamily: 'var(--font-code)' }}>password123</code> • Admin: <code style={{ color: '#fde68a', fontFamily: 'var(--font-code)' }}>adminpassword123</code>
+            </div>
+          </div>
+          <div style={{ display: 'flex', gap: '0.35rem' }}>
+            <button 
+              type="button" 
+              onClick={() => { setEmail('admin@bookleafpublishing.com'); setPassword('adminpassword123'); }}
+              style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid var(--border-glass)', color: '#cbd5e1', fontSize: '0.68rem', padding: '0.2rem 0.5rem', borderRadius: '4px', cursor: 'pointer', fontWeight: 600 }}
+            >
+              Fill Admin
+            </button>
+            <button 
+              type="button" 
+              onClick={() => { setEmail('aarav.sharma@example.com'); setPassword('password123'); }}
+              style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid var(--border-glass)', color: '#cbd5e1', fontSize: '0.68rem', padding: '0.2rem 0.5rem', borderRadius: '4px', cursor: 'pointer', fontWeight: 600 }}
+            >
+              Fill Author
+            </button>
+          </div>
+        </div>
+
         {/* Manual Login Form */}
         <form onSubmit={handleManualSubmit}>
           <div className="form-group">
