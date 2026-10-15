@@ -290,20 +290,21 @@ Interactive Swagger UI is mounted at **[http://localhost:5000/api-docs](http://l
 ## 🧪 Edge Cases Handled
 
 1. **Books Earning Royalties ($> ₹1,000$ Threshold):**
-   - Aarav Sharma (*The Whispering Embers*): ₹5,500 pending royalty correctly marked as eligible for next quarterly payout.
-2. **Royalty Balances Below Minimum Threshold ($< ₹1,000$):**
-   - Priya Sen (*Monsoon Melodies*): ₹675 pending royalty.
-   - Ananya Roy (*Kolkata Nostalgia*): ₹890 pending royalty.
-   - System highlights rollover status without flagging as unpaid defect.
-3. **Zero Sales / Zero Royalty:**
-   - Vikram Desai (*The Soul's Labyrinth*): 0 copies sold, ₹0 earned. Displayed cleanly without divide-by-zero errors.
-4. **Books In Production:**
-   - Sarah Jenkins (*The Quantum Frontier* in Typesetting, *Voices from the Rust Belt* in Proofreading).
-   - Displayed with the 9-stage visual milestone stepper; ISBN marked as pending assignment.
-5. **Bank Verification Missing:**
-   - Warns author and alerts operations team when pending royalties cannot be disbursed due to unverified bank details.
-6. **External AI API Outage or Rate Limiting:**
-   - Graceful fallback engine activates with zero disruption to ticket creation or draft generation.
+   - Priya Sharma (`AUTH001` - *Whispers of the Ganges*): ₹3,570 pending royalty correctly marked as eligible for next quarterly payout cycle (45 days post-quarter end).
+2. **Royalty Balances Below Minimum Threshold ($< ₹1,000$ Rollover Rule):**
+   - Kavita Deshmukh (`AUTH009` - *The Nagpur Notebooks*): ₹850 pending royalty.
+   - The system clearly displays an automatic rollover badge: *"Balance below ₹1,000 threshold; rolls over to the next quarter without forfeiture"*.
+3. **Zero Pending Royalty (Fully Disbursed):**
+   - Farhan Sheikh (`AUTH008` - *Ghazal of the Forgotten*): 650 copies sold, ₹3,120 earned, ₹3,120 paid, ₹0 pending. Handled cleanly with positive confirmation status and no divide-by-zero or pending alerts.
+4. **Books In Production (Pre-Publication):**
+   - Sneha Kulkarni (`AUTH007` - *Midnight in Mysore* in Cover Design; Kavita Deshmukh - *Raising Roots* in Typesetting).
+   - Displayed with the 9-stage visual milestone stepper; ISBN correctly indicated as *"Pending Assignment in Stage 6"*.
+5. **High-Volume Bestseller Author:**
+   - Rohit Kapoor (`AUTH002` - *Code & Karma*): 2,079 copies sold, ₹13,024 pending royalty, highlighted with VIP Bestseller Breakthrough tier badges.
+6. **Severe Printing Defect / Blocker:**
+   - Vikram Joshi (`AUTH004` - *Debugging Life*): Misbound pages defect inquiry automatically classified as `Printing & Quality` with `Critical` priority (Score 95), invoking BookLeaf's 100% free replacement reprint guarantee policy.
+7. **External AI API Outage or Rate Limiting:**
+   - Deterministic Knowledge Base Engine activates seamlessly with zero downtime or user disruption.
 
 ---
 
