@@ -41,7 +41,7 @@ export function AdminTicketQueue({ tickets, selectedTicketId, onSelectTicket, fi
       {/* Top Header */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.1rem', flexWrap: 'wrap', gap: '0.65rem' }}>
         <div>
-          <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.02em' }}>
+          <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.02em' }}>
             Operations Ticket Queue
           </h3>
           <span style={{ fontSize: '0.76rem', color: 'var(--text-muted)' }}>
@@ -188,14 +188,14 @@ export function AdminTicketQueue({ tickets, selectedTicketId, onSelectTicket, fi
                 </div>
 
                 {/* Subject */}
-                <h4 style={{ fontSize: '0.92rem', fontWeight: 800, color: '#ffffff', marginBottom: '0.45rem', lineHeight: '1.3' }}>
+                <h4 style={{ fontSize: '0.92rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: '0.45rem', lineHeight: '1.3' }}>
                   {t.subject}
                 </h4>
 
                 {/* Author & Book Details */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.76rem', color: 'var(--text-muted)', marginBottom: '0.65rem' }}>
                   <User size={13} style={{ color: 'var(--text-dim)' }} />
-                  <strong style={{ color: '#e2e8f0' }}>{t.author_name}</strong>
+                  <strong style={{ color: 'var(--text-main)' }}>{t.author_name}</strong>
                   {t.book_title && (
                     <>
                       <span>•</span>

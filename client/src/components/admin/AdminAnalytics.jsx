@@ -45,7 +45,7 @@ export function AdminAnalytics() {
   return (
     <div>
       <div style={{ marginBottom: '1.5rem' }}>
-        <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.35rem', fontWeight: 700, color: '#ffffff' }}>
+        <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.35rem', fontWeight: 700, color: 'var(--text-main)' }}>
           Operations & AI Analytics Dashboard
         </h2>
         <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
@@ -100,7 +100,7 @@ export function AdminAnalytics() {
         <div className="glass-panel" style={{ padding: '1.5rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', marginBottom: '1.25rem' }}>
             <PieChart size={18} style={{ color: '#818cf8' }} />
-            <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#ffffff' }}>
+            <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-main)' }}>
               Ticket Volume by Inquiry Category
             </h3>
           </div>
@@ -111,7 +111,7 @@ export function AdminAnalytics() {
               return (
                 <div key={cat.category}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.82rem', marginBottom: '0.35rem' }}>
-                    <span style={{ color: '#e2e8f0', fontWeight: 600 }}>{cat.category}</span>
+                    <span style={{ color: 'var(--text-main)', fontWeight: 600 }}>{cat.category}</span>
                     <span style={{ color: 'var(--text-muted)' }}>{cat.count} tickets ({percentage}%)</span>
                   </div>
                   <div style={{ width: '100%', height: '8px', background: 'var(--bg-surface-elevated)', borderRadius: '4px', overflow: 'hidden' }}>
@@ -135,7 +135,7 @@ export function AdminAnalytics() {
         <div className="glass-panel" style={{ padding: '1.5rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', marginBottom: '1.25rem' }}>
             <DollarSign size={18} style={{ color: 'var(--primary)' }} />
-            <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#ffffff' }}>
+            <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-main)' }}>
               Catalog Royalty & Sales Overview
             </h3>
           </div>
@@ -143,7 +143,7 @@ export function AdminAnalytics() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             <div style={{ background: 'var(--bg-surface-elevated)', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-subtle)' }}>
               <div style={{ fontSize: '0.74rem', color: 'var(--text-dim)' }}>TOTAL COPIES SOLD ACROSS CATALOG</div>
-              <div style={{ fontSize: '1.4rem', fontWeight: 700, color: '#ffffff', marginTop: '0.2rem' }}>
+              <div style={{ fontSize: '1.4rem', fontWeight: 700, color: 'var(--text-main)', marginTop: '0.2rem' }}>
                 {financials?.total_copies_sold?.toLocaleString('en-IN')} units
               </div>
             </div>

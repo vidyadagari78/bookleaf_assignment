@@ -37,7 +37,7 @@ export function AdminAuthorsView({ onSelectAuthor }) {
     <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem', flexWrap: 'wrap', gap: '0.75rem' }}>
         <div>
-          <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.35rem', fontWeight: 700, color: '#ffffff' }}>
+          <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.35rem', fontWeight: 700, color: 'var(--text-main)' }}>
             BookLeaf Authors Directory (10 Catalog Authors)
           </h2>
           <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
@@ -80,7 +80,7 @@ export function AdminAuthorsView({ onSelectAuthor }) {
               return (
                 <tr key={a.id}>
                   <td>
-                    <div style={{ fontWeight: 700, color: '#ffffff' }}>{a.name}</div>
+                    <div style={{ fontWeight: 700, color: 'var(--text-main)' }}>{a.name}</div>
                     <div style={{ fontSize: '0.72rem', color: 'var(--text-dim)' }}>{a.email}</div>
                   </td>
                   <td>{a.city ? `${a.city}, ${a.country}` : a.country}</td>

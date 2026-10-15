@@ -36,7 +36,7 @@ export function KnowledgeBaseExplorer() {
   return (
     <div>
       <div style={{ marginBottom: '1.5rem' }}>
-        <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.35rem', fontWeight: 700, color: '#ffffff' }}>
+        <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.35rem', fontWeight: 700, color: 'var(--text-main)' }}>
           BookLeaf Knowledge Base & Tone Guidelines
         </h2>
         <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
@@ -113,15 +113,15 @@ export function KnowledgeBaseExplorer() {
                 </h3>
               </div>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', fontSize: '0.88rem', lineHeight: '1.6', color: '#cbd5e1' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', fontSize: '0.88rem', lineHeight: '1.6', color: 'var(--text-muted)' }}>
                 <div style={{ background: 'var(--bg-surface-elevated)', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-subtle)' }}>
-                  <strong style={{ color: '#ffffff' }}>Royalty Split:</strong> {kb.royalty_policy.split_percentage}
+                  <strong style={{ color: 'var(--text-main)' }}>Royalty Split:</strong> {kb.royalty_policy.split_percentage}
                   <br />
-                  <strong style={{ color: '#ffffff' }}>Net Profit Formula:</strong> <code>{kb.royalty_policy.net_profit_formula}</code>
+                  <strong style={{ color: 'var(--text-main)' }}>Net Profit Formula:</strong> <code>{kb.royalty_policy.net_profit_formula}</code>
                 </div>
 
                 <div>
-                  <strong style={{ color: '#ffffff' }}>Disbursement Frequency:</strong> {kb.royalty_policy.payout_frequency}
+                  <strong style={{ color: 'var(--text-main)' }}>Disbursement Frequency:</strong> {kb.royalty_policy.payout_frequency}
                 </div>
 
                 <div style={{ background: 'rgba(245, 158, 11, 0.08)', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid rgba(245, 158, 11, 0.25)' }}>
@@ -130,7 +130,7 @@ export function KnowledgeBaseExplorer() {
                 </div>
 
                 <div>
-                  <strong style={{ color: '#ffffff' }}>Quarterly Payout Cycles:</strong>
+                  <strong style={{ color: 'var(--text-main)' }}>Quarterly Payout Cycles:</strong>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem', marginTop: '0.5rem' }}>
                     {kb.royalty_policy.quarterly_cycles?.map(q => (
                       <div key={q.quarter} style={{ background: 'var(--bg-surface-elevated)', padding: '0.75rem', borderRadius: 'var(--radius-md)' }}>
@@ -226,7 +226,7 @@ export function KnowledgeBaseExplorer() {
                       {stg.order}
                     </div>
                     <div>
-                      <strong style={{ color: '#ffffff', fontSize: '0.9rem' }}>{stg.name}</strong>
+                      <strong style={{ color: 'var(--text-main)', fontSize: '0.9rem' }}>{stg.name}</strong>
                       <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: '0.15rem' }}>{stg.description}</p>
                     </div>
                   </div>

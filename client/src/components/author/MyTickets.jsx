@@ -72,7 +72,7 @@ export function MyTickets({ tickets, selectedTicketId, onSelectTicket, onRefresh
     <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '0.85rem' }}>
         <div>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.45rem', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.02em' }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.45rem', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.02em' }}>
             Author Support Threads & Queries
           </h2>
           <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
@@ -81,7 +81,7 @@ export function MyTickets({ tickets, selectedTicketId, onSelectTicket, onRefresh
         </div>
 
         {/* Status Filter Pills */}
-        <div style={{ display: 'flex', gap: '0.35rem', flexWrap: 'wrap', background: 'rgba(15, 23, 42, 0.7)', padding: '0.3rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-glass)' }}>
+        <div style={{ display: 'flex', gap: '0.35rem', flexWrap: 'wrap', background: 'var(--bg-glass)', padding: '0.3rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-glass)' }}>
           {['All', 'Open', 'In Progress', 'Resolved', 'Closed'].map(st => (
             <button
               key={st}
@@ -100,7 +100,7 @@ export function MyTickets({ tickets, selectedTicketId, onSelectTicket, onRefresh
           <div style={{ width: '56px', height: '56px', borderRadius: '50%', background: 'rgba(255, 255, 255, 0.05)', color: 'var(--text-dim)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.25rem' }}>
             <MessageSquare size={28} />
           </div>
-          <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#ffffff', marginBottom: '0.4rem' }}>No Tickets Raised Yet</h3>
+          <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '0.4rem' }}>No Tickets Raised Yet</h3>
           <p style={{ fontSize: '0.86rem', color: 'var(--text-muted)', maxWidth: '420px', margin: '0 auto' }}>
             Have a question regarding royalties, ISBNs, print copies, or publication milestones? Submit a query above!
           </p>
@@ -152,7 +152,7 @@ export function MyTickets({ tickets, selectedTicketId, onSelectTicket, onRefresh
                       </span>
                     </div>
 
-                    <h4 style={{ fontSize: '0.92rem', fontWeight: 700, color: '#ffffff', marginBottom: '0.45rem', lineHeight: '1.3' }}>
+                    <h4 style={{ fontSize: '0.92rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '0.45rem', lineHeight: '1.3' }}>
                       {t.subject}
                     </h4>
 
@@ -189,7 +189,7 @@ export function MyTickets({ tickets, selectedTicketId, onSelectTicket, onRefresh
                       </span>
                     </div>
 
-                    <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.35rem', fontWeight: 800, color: '#ffffff', lineHeight: '1.3' }}>
+                    <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.35rem', fontWeight: 800, color: 'var(--text-main)', lineHeight: '1.3' }}>
                       {ticketDetails.subject}
                     </h3>
 
@@ -197,7 +197,7 @@ export function MyTickets({ tickets, selectedTicketId, onSelectTicket, onRefresh
                       <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginTop: '0.35rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
                         <BookOpen size={14} style={{ color: 'var(--primary)' }} />
                         <span>Referenced Book:</span>
-                        <strong style={{ color: '#ffffff' }}>{ticketDetails.book_title}</strong>
+                        <strong style={{ color: 'var(--text-main)' }}>{ticketDetails.book_title}</strong>
                         {ticketDetails.book_isbn && (
                           <span style={{ fontFamily: 'var(--font-code)', color: 'var(--text-dim)' }}>({ticketDetails.book_isbn})</span>
                         )}

@@ -106,7 +106,7 @@ export function MyBooks({ booksData, onSelectBookForTicket }) {
                 <div style={{ fontSize: '0.7rem', color: 'var(--text-dim)', textTransform: 'uppercase', fontWeight: 700 }}>
                   Publishing Package
                 </div>
-                <div style={{ fontSize: '0.9rem', fontWeight: 800, color: '#ffffff' }}>
+                <div style={{ fontSize: '0.9rem', fontWeight: 800, color: 'var(--text-main)' }}>
                   {user?.package || 'Standard Free'}
                 </div>
               </div>
@@ -202,14 +202,14 @@ export function MyBooks({ booksData, onSelectBookForTicket }) {
               <Sparkles size={13} />
               <span>Interactive Royalty Economics</span>
             </div>
-            <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.35rem', fontWeight: 800, color: '#fff', marginTop: '0.35rem' }}>
+            <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.35rem', fontWeight: 800, color: 'var(--text-main)', marginTop: '0.35rem' }}>
               BookLeaf 80/20 Net Profit Simulator
             </h3>
             <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
               Simulate quarterly sales to see how BookLeaf's 80% net author profit split is calculated and when it meets the ₹1,000 disbursement threshold.
             </p>
           </div>
-          <div style={{ textAlign: 'right', background: 'rgba(15, 23, 42, 0.7)', padding: '0.75rem 1.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-gold)' }}>
+          <div style={{ textAlign: 'right', background: 'var(--bg-card)', padding: '0.75rem 1.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-gold)' }}>
             <span style={{ fontSize: '0.7rem', color: 'var(--text-dim)', textTransform: 'uppercase', fontWeight: 700 }}>Simulated Quarterly Author Payout</span>
             <div style={{ fontSize: '1.85rem', fontWeight: 900, color: '#fbbf24', fontFamily: 'var(--font-display)' }}>
               ₹{simTotalAuthorEarnings.toLocaleString('en-IN')}
@@ -223,7 +223,7 @@ export function MyBooks({ booksData, onSelectBookForTicket }) {
         {/* Slider Controls */}
         <div style={{ marginBottom: '1.5rem' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.84rem', fontWeight: 700, marginBottom: '0.5rem' }}>
-            <span>Projected Copies Sold this Quarter: <strong style={{ color: '#ffffff', fontSize: '1.05rem', marginLeft: '0.35rem' }}>{simCopies} books</strong></span>
+            <span>Projected Copies Sold this Quarter: <strong style={{ color: 'var(--primary)', fontSize: '1.05rem', marginLeft: '0.35rem' }}>{simCopies} books</strong></span>
             <span style={{ color: 'var(--text-dim)' }}>Drag slider to simulate volume:</span>
           </div>
           <input 
@@ -297,7 +297,7 @@ export function MyBooks({ booksData, onSelectBookForTicket }) {
       {/* ======================================================== */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '0.75rem' }}>
         <div>
-          <h2 style={{ fontFamily: 'var(--font-editorial)', fontSize: '1.65rem', fontWeight: 800, letterSpacing: '-0.02em', color: '#ffffff' }}>
+          <h2 style={{ fontFamily: 'var(--font-editorial)', fontSize: '1.65rem', fontWeight: 800, letterSpacing: '-0.02em', color: 'var(--text-main)' }}>
             Author Book Catalog ({books.length} Titles)
           </h2>
           <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
@@ -305,7 +305,7 @@ export function MyBooks({ booksData, onSelectBookForTicket }) {
           </p>
         </div>
 
-        <div style={{ display: 'flex', gap: '0.4rem', background: 'rgba(15, 23, 42, 0.8)', padding: '0.3rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-glass)' }}>
+        <div style={{ display: 'flex', gap: '0.4rem', background: 'var(--bg-glass)', padding: '0.3rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-glass)' }}>
           <button 
             className={`btn btn-sm ${viewMode === 'cards' ? 'btn-primary' : 'btn-secondary'}`}
             onClick={() => setViewMode('cards')}
@@ -384,7 +384,7 @@ export function MyBooks({ booksData, onSelectBookForTicket }) {
                         </span>
                       </div>
 
-                      <h3 style={{ fontFamily: 'var(--font-editorial)', fontSize: '1.3rem', fontWeight: 800, color: '#ffffff', lineHeight: '1.3' }}>
+                      <h3 style={{ fontFamily: 'var(--font-editorial)', fontSize: '1.3rem', fontWeight: 800, color: 'var(--text-main)', lineHeight: '1.3' }}>
                         {book.title}
                       </h3>
 
@@ -465,7 +465,7 @@ export function MyBooks({ booksData, onSelectBookForTicket }) {
                       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.5rem', textAlign: 'center', marginBottom: '0.75rem' }}>
                         <div>
                           <div style={{ fontSize: '0.68rem', color: 'var(--text-dim)', textTransform: 'uppercase', fontWeight: 700 }}>COPIES SOLD</div>
-                          <div style={{ fontSize: '1.15rem', fontWeight: 800, color: '#ffffff', marginTop: '0.15rem' }}>
+                          <div style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--text-main)', marginTop: '0.15rem' }}>
                             {book.total_copies_sold}
                           </div>
                         </div>
@@ -560,7 +560,7 @@ export function MyBooks({ booksData, onSelectBookForTicket }) {
               {books.map((b) => (
                 <tr key={b.id}>
                   <td>
-                    <div style={{ fontWeight: 800, color: '#ffffff' }}>{b.title}</div>
+                    <div style={{ fontWeight: 800, color: 'var(--text-main)' }}>{b.title}</div>
                     <div style={{ fontSize: '0.72rem', color: 'var(--text-dim)' }}>{b.package}</div>
                   </td>
                   <td style={{ fontFamily: 'var(--font-code)', fontSize: '0.78rem' }}>
@@ -612,14 +612,14 @@ export function MyBooks({ booksData, onSelectBookForTicket }) {
 
             {/* Sales Volume by Platform */}
             <div style={{ marginBottom: '1.5rem' }}>
-              <h4 style={{ fontSize: '0.9rem', fontWeight: 800, color: '#ffffff', marginBottom: '0.75rem' }}>
+              <h4 style={{ fontSize: '0.9rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: '0.75rem' }}>
                 Sales Volume Across Retail Channels
               </h4>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '0.75rem' }}>
                 {Object.entries(selectedBookModal.sales_breakdown || {}).map(([channel, count]) => (
-                  <div key={channel} style={{ background: 'rgba(22, 34, 60, 0.7)', padding: '0.85rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-glass)', textAlign: 'center' }}>
+                  <div key={channel} style={{ background: 'var(--bg-card)', padding: '0.85rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-glass)', textAlign: 'center' }}>
                     <div style={{ fontSize: '0.72rem', color: 'var(--text-dim)', fontWeight: 600 }}>{channel}</div>
-                    <div style={{ fontSize: '1.25rem', fontWeight: 800, color: '#ffffff', marginTop: '0.2rem' }}>{count}</div>
+                    <div style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-main)', marginTop: '0.2rem' }}>{count}</div>
                   </div>
                 ))}
               </div>

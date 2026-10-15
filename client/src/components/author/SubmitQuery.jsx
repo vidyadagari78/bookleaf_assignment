@@ -85,7 +85,7 @@ export function SubmitQuery({ books, preselectedBookId, onTicketCreated }) {
           <Sparkles size={14} />
           <span>Operations Support Desk</span>
         </div>
-        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.75rem', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.02em' }}>
+        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.75rem', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.02em' }}>
           Submit an Author Support Query
         </h2>
         <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', maxWidth: '580px', margin: '0.35rem auto 0' }}>
@@ -112,15 +112,15 @@ export function SubmitQuery({ books, preselectedBookId, onTicketCreated }) {
             <CheckCircle2 size={36} />
           </div>
 
-          <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.45rem', fontWeight: 800, marginBottom: '0.4rem', color: '#ffffff' }}>
+          <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.45rem', fontWeight: 800, marginBottom: '0.4rem', color: 'var(--text-main)' }}>
             Support Ticket Registered Successfully
           </h3>
           <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', marginBottom: '1.75rem' }}>
-            Ticket ID: <strong style={{ color: '#ffffff', fontFamily: 'var(--font-code)' }}>#{submittedTicket.id}</strong>. Our team has received your inquiry and initialized automated AI triaging.
+            Ticket ID: <strong style={{ color: 'var(--primary)', fontFamily: 'var(--font-code)' }}>#{submittedTicket.id}</strong>. Our team has received your inquiry and initialized automated AI triaging.
           </p>
 
           <div style={{
-            background: 'rgba(22, 34, 60, 0.75)',
+            background: 'var(--bg-card)',
             borderRadius: 'var(--radius-md)',
             padding: '1.25rem',
             maxWidth: '560px',
@@ -259,14 +259,14 @@ export function SubmitQuery({ books, preselectedBookId, onTicketCreated }) {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
-                background: 'rgba(22, 34, 60, 0.75)',
+                background: 'var(--bg-card)',
                 padding: '0.75rem 1.1rem',
                 borderRadius: 'var(--radius-sm)',
                 border: '1px solid var(--border-glass)'
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
                   <FileText size={20} style={{ color: 'var(--primary)' }} />
-                  <span style={{ fontSize: '0.86rem', fontWeight: 700, color: '#ffffff' }}>{attachment.name}</span>
+                  <span style={{ fontSize: '0.86rem', fontWeight: 700, color: 'var(--text-main)' }}>{attachment.name}</span>
                   <span style={{ fontSize: '0.75rem', color: 'var(--text-dim)' }}>({attachment.size})</span>
                 </div>
                 <button 

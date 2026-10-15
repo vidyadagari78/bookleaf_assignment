@@ -185,7 +185,7 @@ export function AdminTicketDetail({ ticketId, onTicketUpdated }) {
                   {effectivePriority}
                 </span>
               </div>
-              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.45rem', fontWeight: 800, color: '#ffffff', lineHeight: '1.3' }}>
+              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.45rem', fontWeight: 800, color: 'var(--text-main)', lineHeight: '1.3' }}>
                 {ticket.subject}
               </h2>
             </div>
@@ -246,12 +246,12 @@ export function AdminTicketDetail({ ticketId, onTicketUpdated }) {
                       {isAdmin ? (
                         <>
                           <ShieldCheck size={15} style={{ color: 'var(--primary)' }} />
-                          <strong style={{ color: '#a7f3d0' }}>{msg.sender_name} (BookLeaf Operations)</strong>
+                          <strong style={{ color: 'var(--primary)' }}>{msg.sender_name} (BookLeaf Operations)</strong>
                         </>
                       ) : (
                         <>
                           <User size={15} style={{ color: 'var(--text-muted)' }} />
-                          <strong style={{ color: '#ffffff' }}>{msg.sender_name} (Author)</strong>
+                          <strong style={{ color: 'var(--text-main)' }}>{msg.sender_name} (Author)</strong>
                         </>
                       )}
                     </div>
@@ -260,7 +260,7 @@ export function AdminTicketDetail({ ticketId, onTicketUpdated }) {
                     </span>
                   </div>
 
-                  <div style={{ fontSize: '0.88rem', color: '#f8fafc', lineHeight: '1.65', whiteSpace: 'pre-wrap' }}>
+                  <div style={{ fontSize: '0.88rem', color: 'var(--text-main)', lineHeight: '1.65', whiteSpace: 'pre-wrap' }}>
                     {msg.message}
                   </div>
                 </div>
@@ -330,17 +330,17 @@ export function AdminTicketDetail({ ticketId, onTicketUpdated }) {
         {activeTab === 'author_context' && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
             {/* Author Profile */}
-            <div style={{ background: 'rgba(22, 34, 60, 0.75)', borderRadius: 'var(--radius-md)', padding: '1.25rem', border: '1px solid var(--border-glass)' }}>
+            <div style={{ background: 'var(--bg-card)', borderRadius: 'var(--radius-md)', padding: '1.25rem', border: '1px solid var(--border-glass)' }}>
               <h4 style={{ fontSize: '0.92rem', fontWeight: 800, color: 'var(--primary)', marginBottom: '0.65rem' }}>
                 Author Profile: {ticket.author_name}
               </h4>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.65rem', fontSize: '0.82rem', color: '#cbd5e1' }}>
-                <div>Email: <strong style={{ color: '#ffffff' }}>{ticket.author_email}</strong></div>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.65rem', fontSize: '0.82rem', color: 'var(--text-muted)' }}>
+                <div>Email: <strong style={{ color: 'var(--text-main)' }}>{ticket.author_email}</strong></div>
                 <div>Country: <strong>{ticket.author_country}</strong> ({ticket.author_city || 'N/A'})</div>
                 <div>Package: <strong style={{ color: '#fbbf24' }}>{ticket.author_package}</strong></div>
                 <div>
                   Bank Verified: {ticket.author_bank_details?.is_verified ? (
-                    <span style={{ color: '#34d399', fontWeight: 700 }}>✓ Yes ({ticket.author_bank_details.bank_name})</span>
+                    <span style={{ color: '#10b981', fontWeight: 700 }}>✓ Yes ({ticket.author_bank_details.bank_name})</span>
                   ) : (
                     <span style={{ color: '#ef4444', fontWeight: 700 }}>⚠ Not Verified / Pending</span>
                   )}
@@ -350,21 +350,21 @@ export function AdminTicketDetail({ ticketId, onTicketUpdated }) {
 
             {/* Linked Book */}
             {ticket.book_title ? (
-              <div style={{ background: 'rgba(22, 34, 60, 0.75)', borderRadius: 'var(--radius-md)', padding: '1.25rem', border: '1px solid var(--border-glass)' }}>
-                <h4 style={{ fontSize: '0.92rem', fontWeight: 800, color: '#38bdf8', marginBottom: '0.65rem' }}>
+              <div style={{ background: 'var(--bg-card)', borderRadius: 'var(--radius-md)', padding: '1.25rem', border: '1px solid var(--border-glass)' }}>
+                <h4 style={{ fontSize: '0.92rem', fontWeight: 800, color: 'var(--primary)', marginBottom: '0.65rem' }}>
                   Linked Book: {ticket.book_title}
                 </h4>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.65rem', fontSize: '0.82rem', color: '#cbd5e1' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.65rem', fontSize: '0.82rem', color: 'var(--text-muted)' }}>
                   <div>ISBN: <strong>{ticket.book_isbn || 'Pending'}</strong></div>
                   <div>Status: <strong>{ticket.book_status}</strong></div>
                   <div>Stage: <strong>{ticket.book_production_stage}</strong></div>
-                  <div>Copies Sold: <strong style={{ color: '#ffffff' }}>{ticket.book_total_copies_sold}</strong></div>
-                  <div>Royalty Earned: <strong style={{ color: '#34d399' }}>₹{ticket.book_total_royalty_earned?.toLocaleString('en-IN')}</strong></div>
+                  <div>Copies Sold: <strong style={{ color: 'var(--text-main)' }}>{ticket.book_total_copies_sold}</strong></div>
+                  <div>Royalty Earned: <strong style={{ color: '#10b981' }}>₹{ticket.book_total_royalty_earned?.toLocaleString('en-IN')}</strong></div>
                   <div>Royalty Pending: <strong style={{ color: '#fbbf24' }}>₹{ticket.book_royalty_pending?.toLocaleString('en-IN')}</strong></div>
                 </div>
               </div>
             ) : (
-              <div style={{ background: 'rgba(22, 34, 60, 0.75)', padding: '1.25rem', borderRadius: 'var(--radius-md)', color: 'var(--text-dim)', fontSize: '0.82rem', border: '1px solid var(--border-glass)' }}>
+              <div style={{ background: 'var(--bg-card)', padding: '1.25rem', borderRadius: 'var(--radius-md)', color: 'var(--text-dim)', fontSize: '0.82rem', border: '1px solid var(--border-glass)' }}>
                 This is an account-level or general query not tied to a specific book.
               </div>
             )}
@@ -383,7 +383,7 @@ export function AdminTicketDetail({ ticketId, onTicketUpdated }) {
               <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: 'var(--accent-indigo-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#818cf8' }}>
                 <Cpu size={16} />
               </div>
-              <h3 style={{ fontSize: '1.05rem', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.02em' }}>
+              <h3 style={{ fontSize: '1.05rem', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.02em' }}>
                 AI Auto-Classification & Triage
               </h3>
             </div>
@@ -453,8 +453,8 @@ export function AdminTicketDetail({ ticketId, onTicketUpdated }) {
           </div>
 
           {/* Rationale explanation */}
-          <div style={{ background: 'rgba(22, 34, 60, 0.75)', borderRadius: 'var(--radius-sm)', padding: '0.85rem', fontSize: '0.76rem', color: 'var(--text-muted)', marginBottom: '1.25rem', border: '1px solid var(--border-glass)', lineHeight: '1.5' }}>
-            <strong style={{ color: '#ffffff' }}>AI Triage Rationale:</strong> {ticket.ai_rationale}
+          <div style={{ background: 'var(--bg-card)', borderRadius: 'var(--radius-sm)', padding: '0.85rem', fontSize: '0.76rem', color: 'var(--text-muted)', marginBottom: '1.25rem', border: '1px solid var(--border-glass)', lineHeight: '1.5' }}>
+            <strong style={{ color: 'var(--text-main)' }}>AI Triage Rationale:</strong> {ticket.ai_rationale}
           </div>
 
           {/* Save overrides button */}
@@ -477,7 +477,7 @@ export function AdminTicketDetail({ ticketId, onTicketUpdated }) {
                 <Sparkles size={17} />
               </div>
               <div>
-                <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.02em' }}>
+                <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.02em' }}>
                   Athena Neural Drafting Studio
                 </h3>
                 <span style={{ fontSize: '0.72rem', color: 'var(--text-dim)' }}>Policy-Grounded Editorial AI</span>

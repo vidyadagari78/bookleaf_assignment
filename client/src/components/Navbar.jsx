@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
+import { useTheme } from '../context/ThemeContext';
 import { 
   BookOpen, 
   Users, 
@@ -14,13 +15,17 @@ import {
   CheckCircle2,
   Crown,
   Leaf,
-  Layers
+  Layers,
+  Palette,
+  ChevronDown
 } from 'lucide-react';
 import { api } from '../services/api';
 
 export function Navbar({ isWsConnected, onResetSuccess }) {
   const { user, logout, quickSwitch, demoAccounts, isAdmin } = useAuth();
+  const { theme, setTheme, themes } = useTheme();
   const [showDemoModal, setShowDemoModal] = useState(false);
+  const [showThemeMenu, setShowThemeMenu] = useState(false);
   const [isResetting, setIsResetting] = useState(false);
   const [resetMessage, setResetMessage] = useState(null);
 
@@ -67,6 +72,78 @@ export function Navbar({ isWsConnected, onResetSuccess }) {
             <span>{isWsConnected ? 'Live Real-Time' : 'Syncing...'}</span>
           </div>
 
+          {/* Visual Theme / Design Switcher */}
+          <div style={{ position: 'relative' }}>
+            <button 
+              className="btn btn-secondary btn-sm"
+              onClick={() => setShowThemeMenu(prev => !prev)}
+              title="Change visual theme / design aesthetic"
+              style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', padding: '0.4rem 0.75rem' }}
+            >
+              <Palette size={14} style={{ color: 'var(--primary)' }} />
+              <span style={{ fontWeight: 600 }}>
+                {theme === 'editorial' ? '🏛️ Editorial Ivory' : theme === 'nordic' ? '🌌 Nordic Slate' : '🌿 Midnight Gold'}
+              </span>
+              <ChevronDown size={12} style={{ opacity: 0.6 }} />
+            </button>
+
+            {showThemeMenu && (
+              <div 
+                className="glass-panel"
+                style={{
+                  position: 'absolute',
+                  top: 'calc(100% + 8px)',
+                  right: 0,
+                  zIndex: 250,
+                  minWidth: '225px',
+                  padding: '0.5rem',
+                  borderRadius: 'var(--radius-md)',
+                  boxShadow: '0 16px 36px rgba(0,0,0,0.25)',
+                  border: '1px solid var(--border-glass)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '0.35rem',
+                  background: 'var(--bg-card)'
+                }}
+              >
+                <div style={{ padding: '0.35rem 0.6rem', fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--text-dim)' }}>
+                  Visual Design Theme
+                </div>
+                {themes.map(t => (
+                  <button
+                    key={t.id}
+                    type="button"
+                    onClick={() => {
+                      setTheme(t.id);
+                      setShowThemeMenu(false);
+                    }}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.65rem',
+                      padding: '0.55rem 0.75rem',
+                      borderRadius: 'var(--radius-sm)',
+                      border: theme === t.id ? '1px solid var(--primary)' : '1px solid transparent',
+                      background: theme === t.id ? 'var(--primary-light)' : 'transparent',
+                      color: 'var(--text-main)',
+                      cursor: 'pointer',
+                      textAlign: 'left',
+                      fontSize: '0.82rem',
+                      fontWeight: theme === t.id ? 700 : 500,
+                      transition: 'all 0.15s ease'
+                    }}
+                  >
+                    <span style={{ fontSize: '1.15rem' }}>{t.icon}</span>
+                    <div>
+                      <div style={{ lineHeight: '1.2' }}>{t.label}</div>
+                      <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)' }}>{t.subtitle}</div>
+                    </div>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
           {/* Quick Demo Switcher Button */}
           <button 
             className="btn btn-demo btn-sm"
@@ -97,7 +174,7 @@ export function Navbar({ isWsConnected, onResetSuccess }) {
                 <span className={`role-tag ${user.role}`}>
                   {user.role === 'admin' ? 'OPERATIONS ADMIN' : 'AUTHOR'}
                 </span>
-                <span style={{ fontWeight: 700, color: '#ffffff' }}>{user.name}</span>
+                <span style={{ fontWeight: 700, color: 'var(--text-main)' }}>{user.name}</span>
               </div>
               <button 
                 className="btn btn-secondary btn-sm" 
@@ -147,7 +224,7 @@ export function Navbar({ isWsConnected, onResetSuccess }) {
                         setShowDemoModal(false);
                       }}
                       style={{
-                        background: isCurrent ? 'rgba(99, 102, 241, 0.22)' : 'rgba(22, 34, 60, 0.75)',
+                        background: isCurrent ? 'rgba(99, 102, 241, 0.22)' : 'var(--bg-card)',
                         border: isCurrent ? '1.5px solid #6366f1' : '1px solid var(--border-glass)',
                         borderRadius: 'var(--radius-md)',
                         padding: '1rem',
@@ -157,7 +234,7 @@ export function Navbar({ isWsConnected, onResetSuccess }) {
                       }}
                     >
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <span style={{ fontWeight: 800, fontSize: '0.92rem', color: '#ffffff' }}>{adm.name}</span>
+                        <span style={{ fontWeight: 800, fontSize: '0.92rem', color: 'var(--text-main)' }}>{adm.name}</span>
                         {isCurrent && <CheckCircle2 size={16} style={{ color: '#10b981' }} />}
                       </div>
                       <div style={{ fontSize: '0.78rem', color: '#a5b4fc', marginTop: '0.15rem' }}>{adm.title}</div>
@@ -171,8 +248,8 @@ export function Navbar({ isWsConnected, onResetSuccess }) {
             {/* Authors Section */}
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', marginBottom: '0.85rem' }}>
-                <UserCheck size={18} style={{ color: '#34d399' }} />
-                <h4 style={{ fontSize: '0.92rem', color: '#a7f3d0', fontWeight: 700 }}>
+                <UserCheck size={18} style={{ color: 'var(--primary)' }} />
+                <h4 style={{ fontSize: '0.92rem', color: 'var(--text-main)', fontWeight: 700 }}>
                   Catalog Authors (10 Sample Scenarios)
                 </h4>
               </div>
@@ -188,7 +265,7 @@ export function Navbar({ isWsConnected, onResetSuccess }) {
                         setShowDemoModal(false);
                       }}
                       style={{
-                        background: isCurrent ? 'rgba(16, 185, 129, 0.2)' : 'rgba(22, 34, 60, 0.65)',
+                        background: isCurrent ? 'rgba(16, 185, 129, 0.2)' : 'var(--bg-card)',
                         border: isCurrent ? '1.5px solid #10b981' : '1px solid var(--border-glass)',
                         borderRadius: 'var(--radius-md)',
                         padding: '1rem',
@@ -198,7 +275,7 @@ export function Navbar({ isWsConnected, onResetSuccess }) {
                       }}
                     >
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <span style={{ fontWeight: 800, fontSize: '0.92rem', color: '#ffffff' }}>{auth.name}</span>
+                        <span style={{ fontWeight: 800, fontSize: '0.92rem', color: 'var(--text-main)' }}>{auth.name}</span>
                         {isCurrent && <CheckCircle2 size={16} style={{ color: '#10b981' }} />}
                       </div>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', marginTop: '0.2rem' }}>
