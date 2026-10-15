@@ -120,22 +120,22 @@ The application includes an instant **⚡ Demo Accounts Modal** in the top navig
 ### Operations Admins (Full Management, AI Studio & Overrides)
 | Role | Name | Email | Password |
 |---|---|---|---|
-| Head of Operations | Priya Sharma | `admin@bookleafpublishing.com` | `adminpassword123` |
-| Senior Author Success | Kabir Verma | `support@bookleafpublishing.com` | `adminpassword123` |
+| Head of Publishing Operations | Sunita Kapoor | `admin@bookleafpublishing.com` | `adminpassword123` |
+| Senior Author Success Specialist | Kabir Verma | `support@bookleafpublishing.com` | `adminpassword123` |
 
-### Sample Authors (Pre-seeded with all 10 Authors & 18 Books)
-| Author Name | Email | Password | Scenario / Edge Case Represented |
+### Sample Authors (Pre-seeded with all 10 Authors & 18 Books from `bookleaf_sample_data.json`)
+| Author Name | Email | Password | Books & Scenarios / Edge Cases Represented |
 |---|---|---|---|
-| **Aarav Sharma** | `aarav.sharma@example.com` | `password123` | 2 books, ₹5,500 pending royalty (> ₹1k threshold, verified bank) |
-| **Priya Sen** | `priya.sen@example.com` | `password123` | 2 books, ₹675 pending royalty (< ₹1k threshold, **Rolls over**) |
-| **Rajesh Kothari** | `rajesh.kothari@example.com` | `password123` | 2 books, high volume sales (2,150+ units), net profit inquiry |
-| **Sunita Patel** | `sunita.patel@example.com` | `password123` | 1 book, steady sales, general metadata update inquiry |
-| **Vikram Desai** | `vikram.desai@example.com` | `password123` | 2 books, **Zero sales edge case** (*The Soul's Labyrinth*) |
-| **Maya Iyer** | `maya.iyer@example.com` | `password123` | US author, international USD distribution, Critical ISBN mismatch |
-| **Rohan Gupta** | `rohan.gupta@example.com` | `password123` | 2 technical titles, high royalties, pending payout cycle |
-| **Ananya Roy** | `ananya.roy@example.com` | `password123` | 2 books, poetry title ₹890 pending (< ₹1,000 rollover) |
-| **David Miller** | `david.miller@example.com` | `password123` | US historical fiction, Amazon "Currently Unavailable" inquiry |
-| **Sarah Jenkins** | `sarah.jenkins@example.com` | `password123` | **2 Books in Production** (*Typesetting* & *Proofreading*) |
+| **Priya Sharma** (`AUTH001`) | `priya.sharma@email.com` | `password123` | 2 books (*Whispers of the Ganges*, *The Saffron Diaries*), ₹3,570 pending royalty (> ₹1,000 payout cycle) |
+| **Rohit Kapoor** (`AUTH002`) | `rohit.kapoor@email.com` | `password123` | 2 books (*Code & Karma*, *Startup Sutra*), high-volume bestselling author (2,079+ copies sold, ₹13,024 pending) |
+| **Ananya Reddy** (`AUTH003`) | `ananya.reddy@email.com` | `password123` | 1 book (*Between Two Temples*), ₹2,546 pending, first payout cycle (`last_royalty_payout_date`: null) |
+| **Vikram Joshi** (`AUTH004`) | `vikram.joshi@email.com` | `password123` | 2 books (*Debugging Life*, *The Last Monsoon*), ₹3,350 pending, Critical print defect report (100% free reprint) |
+| **Meera Nair** (`AUTH005`) | `meera.nair@email.com` | `password123` | 2 books (*Cardamom & Chaos*, *Letters from Lakshadweep*), Amazon India "Currently Unavailable" stock sync inquiry |
+| **Arjun Malhotra** (`AUTH006`) | `arjun.malhotra@email.com` | `password123` | 1 book (*Turban Tales*), ₹2,464 pending, 50-unit author bulk order discount inquiry |
+| **Sneha Kulkarni** (`AUTH007`) | `sneha.kulkarni@email.com` | `password123` | 3 books, **Production Stage Edge Case**: *Midnight in Mysore* (**In Production - Cover Design**) |
+| **Farhan Sheikh** (`AUTH008`) | `farhan.sheikh@email.com` | `password123` | 1 book (*Ghazal of the Forgotten*), **Zero Pending Royalty Edge Case** (₹3,120 earned, ₹3,120 paid, ₹0 pending) |
+| **Kavita Deshmukh** (`AUTH009`) | `kavita.deshmukh@email.com` | `password123` | 2 books, **< ₹1,000 Rollover Rule**: *The Nagpur Notebooks* (₹850 pending) + *Raising Roots* (**In Production - Typesetting**) |
+| **Diya Chatterjee** (`AUTH010`) | `diya.chatterjee@email.com` | `password123` | 2 books (*Durga's Daughters*, *Howrah Nights*), Repro India international distribution, ₹4,115 pending |
 
 ---
 

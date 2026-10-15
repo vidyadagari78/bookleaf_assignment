@@ -119,7 +119,7 @@ export function LoginPage() {
             </button>
             <button 
               type="button" 
-              onClick={() => { setEmail('aarav.sharma@example.com'); setPassword('password123'); }}
+              onClick={() => { setEmail('priya.sharma@email.com'); setPassword('password123'); }}
               style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid var(--border-glass)', color: '#cbd5e1', fontSize: '0.68rem', padding: '0.2rem 0.5rem', borderRadius: '4px', cursor: 'pointer', fontWeight: 600 }}
             >
               Fill Author
@@ -190,7 +190,7 @@ export function LoginPage() {
             >
               <ShieldCheck size={16} style={{ color: '#818cf8', flexShrink: 0 }} />
               <div>
-                <strong style={{ display: 'block', fontSize: '0.82rem' }}>Priya Sharma (Operations Admin)</strong>
+                <strong style={{ display: 'block', fontSize: '0.82rem' }}>Sunita Kapoor (Operations Admin)</strong>
                 <span style={{ fontSize: '0.7rem', color: 'var(--text-dim)' }}>Full ticket queue, AI drafting & overrides</span>
               </div>
             </button>
@@ -199,12 +199,12 @@ export function LoginPage() {
               type="button"
               className="btn btn-secondary btn-sm"
               style={{ justifyContent: 'flex-start', padding: '0.5rem 0.75rem', textAlign: 'left' }}
-              onClick={() => quickSwitch('aarav.sharma@example.com', 'author')}
+              onClick={() => quickSwitch('priya.sharma@email.com', 'author')}
             >
               <UserCheck size={16} style={{ color: 'var(--primary)', flexShrink: 0 }} />
               <div>
-                <strong style={{ display: 'block', fontSize: '0.82rem' }}>Aarav Sharma (Author — Active Titles)</strong>
-                <span style={{ fontSize: '0.7rem', color: 'var(--text-dim)' }}>₹5,500 pending royalties, 2 published books</span>
+                <strong style={{ display: 'block', fontSize: '0.82rem' }}>Priya Sharma (Author — Active Titles)</strong>
+                <span style={{ fontSize: '0.7rem', color: 'var(--text-dim)' }}>₹3,570 pending royalties, 2 published books</span>
               </div>
             </button>
 
@@ -212,12 +212,12 @@ export function LoginPage() {
               type="button"
               className="btn btn-secondary btn-sm"
               style={{ justifyContent: 'flex-start', padding: '0.5rem 0.75rem', textAlign: 'left' }}
-              onClick={() => quickSwitch('priya.sen@example.com', 'author')}
+              onClick={() => quickSwitch('kavita.deshmukh@email.com', 'author')}
             >
               <UserCheck size={16} style={{ color: '#38bdf8', flexShrink: 0 }} />
               <div>
-                <strong style={{ display: 'block', fontSize: '0.82rem' }}>Priya Sen (Author — Rollover Edge Case)</strong>
-                <span style={{ fontSize: '0.7rem', color: 'var(--text-dim)' }}>₹675 pending royalty below ₹1,000 threshold</span>
+                <strong style={{ display: 'block', fontSize: '0.82rem' }}>Kavita Deshmukh (Author — Rollover Edge Case)</strong>
+                <span style={{ fontSize: '0.7rem', color: 'var(--text-dim)' }}>₹850 pending royalty below ₹1,000 threshold</span>
               </div>
             </button>
 
@@ -225,12 +225,12 @@ export function LoginPage() {
               type="button"
               className="btn btn-secondary btn-sm"
               style={{ justifyContent: 'flex-start', padding: '0.5rem 0.75rem', textAlign: 'left' }}
-              onClick={() => quickSwitch('sarah.jenkins@example.com', 'author')}
+              onClick={() => quickSwitch('sneha.kulkarni@email.com', 'author')}
             >
               <UserCheck size={16} style={{ color: '#f59e0b', flexShrink: 0 }} />
               <div>
-                <strong style={{ display: 'block', fontSize: '0.82rem' }}>Sarah Jenkins (Author — In Production)</strong>
-                <span style={{ fontSize: '0.7rem', color: 'var(--text-dim)' }}>2 books in Typesetting & Proofreading</span>
+                <strong style={{ display: 'block', fontSize: '0.82rem' }}>Sneha Kulkarni (Author — In Production)</strong>
+                <span style={{ fontSize: '0.7rem', color: 'var(--text-dim)' }}>3 titles (Midnight in Mysore in Cover Design)</span>
               </div>
             </button>
           </div>

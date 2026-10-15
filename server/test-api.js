@@ -20,7 +20,7 @@ async function runTests() {
     const loginRes = await fetch(`${baseUrl}/auth/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: 'aarav.sharma@example.com', password: 'password123' })
+      body: JSON.stringify({ email: 'priya.sharma@email.com', password: 'password123' })
     }).then(r => r.json());
     console.log('✓ 3. Author login successful:', loginRes.user.name, 'Token exists:', !!loginRes.token);
     const authorToken = loginRes.token;
@@ -39,7 +39,7 @@ async function runTests() {
         'Authorization': `Bearer ${authorToken}`
       },
       body: JSON.stringify({
-        book_id: 'book-001',
+        book_id: 'BK001',
         subject: 'Author copies have blurry cover colors and misaligned spine',
         description: 'Received the 5 copies yesterday and the spine is shifted by 3mm and colors are dull.'
       })

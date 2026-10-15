@@ -1,8 +1,8 @@
 # 📝 Engineering Approach & Architectural Trade-offs
 
 **Project:** Author Support & Communication Portal  
-**Organization:** BookLeaf Publishing (1,200+ monthly books, 22,000+ catalog titles)  
-**Author:** Full-Stack & AI Systems Engineering Candidate  
+**Candidate:** Vidyashree Dagari (Full-Stack & AI Systems Engineering)  
+**Submission:** BookLeaf Technical Assignment Evaluation  
 
 ---
 

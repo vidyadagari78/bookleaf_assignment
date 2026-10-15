@@ -327,9 +327,14 @@ export function MyBooks({ booksData, onSelectBookForTicket }) {
       {viewMode === 'cards' ? (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(400px, 1fr))', gap: '1.75rem' }}>
           {books.map((book) => {
-            const isProduction = book.status === 'In Production';
+            const isProduction = (book.status && (book.status.startsWith('In Production') || book.status === 'In Production')) || (book.production_stage && book.production_stage !== 'Published & Live');
             const prodDetails = book.production_details || {};
-            const stageIndex = PRODUCTION_STAGES.indexOf(book.production_stage);
+            let stageIndex = PRODUCTION_STAGES.indexOf(book.production_stage);
+            if (stageIndex === -1) {
+              if (book.status && book.status.includes('Cover Design')) stageIndex = 2;
+              else if (book.status && book.status.includes('Typesetting')) stageIndex = 3;
+              else stageIndex = 2;
+            }
             const isEligiblePayout = book.royalty_pending >= 1000;
             const isRollover = book.royalty_pending > 0 && book.royalty_pending < 1000;
 
@@ -563,8 +568,8 @@ export function MyBooks({ booksData, onSelectBookForTicket }) {
                   </td>
                   <td>{b.genre}</td>
                   <td>
-                    <span className={`badge ${b.status === 'Published' ? 'badge-status-resolved' : 'badge-status-open'}`}>
-                      {b.status === 'Published' ? 'Published' : b.production_stage}
+                    <span className={`badge ${b.status === 'Published & Live' || b.status === 'Published' ? 'badge-status-resolved' : 'badge-status-open'}`}>
+                      {b.status}
                     </span>
                   </td>
                   <td>₹{b.mrp}</td>

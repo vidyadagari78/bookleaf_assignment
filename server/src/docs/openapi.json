@@ -54,9 +54,9 @@
           "user": {
             "type": "object",
             "properties": {
-              "id": { "type": "string", "example": "auth-001" },
-              "name": { "type": "string", "example": "Aarav Sharma" },
-              "email": { "type": "string", "example": "aarav.sharma@example.com" },
+              "id": { "type": "string", "example": "AUTH001" },
+              "name": { "type": "string", "example": "Priya Sharma" },
+              "email": { "type": "string", "example": "priya.sharma@email.com" },
               "role": { "type": "string", "enum": ["author", "admin"], "example": "author" }
             }
           }
@@ -65,9 +65,9 @@
       "Ticket": {
         "type": "object",
         "properties": {
-          "id": { "type": "string", "example": "tkt-101" },
-          "author_id": { "type": "string", "example": "auth-001" },
-          "book_id": { "type": "string", "nullable": true, "example": "book-001" },
+          "id": { "type": "string", "example": "TKT-1001" },
+          "author_id": { "type": "string", "example": "AUTH001" },
+          "book_id": { "type": "string", "nullable": true, "example": "BK001" },
           "subject": { "type": "string", "example": "Delayed royalty payment for Q3 cycle" },
           "description": { "type": "string", "example": "I published my book 4 months ago and still haven't received any royalty." },
           "status": { "type": "string", "enum": ["Open", "In Progress", "Resolved", "Closed"], "example": "In Progress" },
@@ -84,7 +84,7 @@
         "type": "object",
         "required": ["subject", "description"],
         "properties": {
-          "book_id": { "type": "string", "nullable": true, "example": "book-001" },
+          "book_id": { "type": "string", "nullable": true, "example": "BK001" },
           "subject": { "type": "string", "example": "Author copies print defect" },
           "description": { "type": "string", "example": "Received author copies with misaligned pages and blurry images." }
         }
